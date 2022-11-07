@@ -13,10 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/user', function () {
-    return view('user');
-
+Route::get('/', function (\App\Repositories\Product\ProductRepositoryInterface $ProductRepository) {
+    //return \App\Models\Product::find(1)->product_image;
+    return $ProductRepository->find(1);
 });
