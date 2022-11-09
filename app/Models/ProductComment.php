@@ -10,7 +10,7 @@ class ProductComment extends Model
     use HasFactory;
     protected $table = 'product_comments';
     protected $primaryKey = 'id';
-    protected $guards = [];
+    protected $fillable = ['product_id', 'user_id', 'rating', 'messages', 'name', 'email'];
 
 
     public function product(){

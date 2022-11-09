@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function (\App\Repositories\Product\ProductRepositoryInterface $ProductRepository) {
+/*Route::get('/', function (\App\Services\Product\ProductServiceInterface $ProductRepository) {
     //return \App\Models\Product::find(1)->product_image;
-    return $ProductRepository->find(1);
+    return $ProductRepository->find(3);
+});*/
+
+
+
+
+// admin
+Route::prefix('admin')->group(function(){
+    Route::resource('user', App\Http\Controllers\Admin\UserController::class);
+    Route::resource('product', App\Http\Controllers\Admin\ProductController::class);
 });
+
+// Client
+Route::get('shop/product/{id}', [App\Http\Controllers\Front\ShopController::class, 'show']);
+Route::post('shop/product/{id}', [App\Http\Controllers\Front\ShopController::class, 'postComment']);
