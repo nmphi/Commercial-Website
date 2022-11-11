@@ -31,5 +31,9 @@ Route::prefix('admin')->group(function(){
 });
 
 // Client
-Route::get('shop/product/{id}', [App\Http\Controllers\Front\ShopController::class, 'show']);
-Route::post('shop/product/{id}', [App\Http\Controllers\Front\ShopController::class, 'postComment']);
+Route::prefix('shop')->group(function(){
+    Route::get('/product/{id}', [App\Http\Controllers\Front\ShopController::class, 'show']);
+    Route::post('/product/{id}', [App\Http\Controllers\Front\ShopController::class, 'postComment']);
+    Route::get('', [App\Http\Controllers\Front\ShopController::class, 'index']);
+});
+

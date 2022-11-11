@@ -19,12 +19,18 @@ class ShopController extends Controller
     }
     public function show($id){
         $products =$this->productService->find($id);
-        return view('front.shop.show', compact('products'));
+        $relatedProducts = $this->productService->getRelatedProduct($products);
+        return view('front.shop.show', compact('products', 'relatedProducts'));
     }
     public function postComment(Request $request){
         $this->productCommentService->create($request->all());
         return redirect()->back();
         
+
+    }
+    public function index(){
+        $products =$this->productService->getProductOnIndex();
+        return view('front.shop.index', compact('products'));
 
     }
 }

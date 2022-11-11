@@ -23,4 +23,10 @@ class ProductService extends BaseServices implements ProductServiceInterface{
         $product->avgRating = $avgRating;
         return $product;
     }
+    public function getProductOnIndex(){
+        return $this->repository->getProductOnIndex();
+    }
+    public function getRelatedProduct($product){
+        return $this->repository->getRelatedProduct($product);
+    }
 }
