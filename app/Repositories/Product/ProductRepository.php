@@ -25,13 +25,7 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
        
         return $products;
     }
-    public function getProductByCategory($categoryName, $request){
-        
-        $products = ProductCategory::where('name', $categoryName)->first()->products->toQuery();
-        //$products = $this->sortAndPaginate($products, $request);
-        return $products;
-
-    }
+    
     private function sortAndPaginate($products, Request $request){
         $sortBy = $request->sort_by ?? 'name-ascending';
         switch ($sortBy){
@@ -63,6 +57,12 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
         $brands = $request->brand ?? [];
         $brand_ids = array_keys($brands);
         $products = $brand_ids != null ? $products->whereIn('brand_id', $brand_ids) : $products;
+
+
+        //ProductCategory
+        $categories = $request->category ?? [];
+        $category_ids = array_keys($categories);
+        $products = $category_ids != null ? $products->whereIn('product_category_id', $category_ids) : $products;
         return $products;
             
     }

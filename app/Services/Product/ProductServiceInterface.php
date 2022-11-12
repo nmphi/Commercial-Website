@@ -5,6 +5,6 @@ use App\Services\ServicesInterface;
 interface ProductServiceInterface extends ServicesInterface{
     public function getProductOnIndex($request);
     public function getRelatedProduct($product);
-    public function getProductByCategory($categoryName, $request);
+    
 
 }
