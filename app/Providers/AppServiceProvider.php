@@ -8,11 +8,27 @@ use App\Services\Product\ProductService;
 use App\Services\Product\ProductServiceInterface;
 
 //ProductComment
-
 use App\Repositories\ProductComment\ProductCommentRepository;
 use App\Repositories\ProductComment\ProductCommentRepositoryInterface;
 use App\Services\ProductComment\ProductCommentService;
 use App\Services\ProductComment\ProductCommentServiceInterface;
+
+
+//ProductCategory
+use App\Repositories\ProductCategory\ProductCategoryRepository;
+use App\Repositories\ProductCategory\ProductCategoryRepositoryInterface;
+use App\Services\ProductCategory\ProductCategoryService;
+use App\Services\ProductCategory\ProductCategoryServiceInterface;
+
+
+//Brand
+use App\Repositories\Brand\BrandRepository;
+use App\Repositories\Brand\BrandRepositoryInterface;
+use App\Services\Brand\BrandService;
+use App\Services\Brand\BrandServiceInterface;
+
+
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -47,6 +63,31 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(
             ProductCommentServiceInterface::class,
             ProductCommentService::class
+
+        );
+
+
+        //ProductCategory
+        $this->app->singleton(
+            ProductCategoryRepositoryInterface::class,
+            ProductCategoryRepository::class
+
+        );
+        $this->app->singleton(
+            ProductCategoryServiceInterface::class,
+            ProductCategoryService::class
+
+        );
+
+        //Brand
+        $this->app->singleton(
+            BrandRepositoryInterface::class,
+            BrandRepository::class
+
+        );
+        $this->app->singleton(
+            BrandServiceInterface::class,
+            BrandService::class
 
         );
     }

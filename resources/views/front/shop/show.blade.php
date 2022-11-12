@@ -58,6 +58,7 @@
     <!-- Begin Body Wrapper -->
     <div class="body-wrapper">
       <!-- Begin Header Area -->
+<<<<<<< HEAD
       <header>
         <!-- Begin Header Top Area -->
         <div class="header-top">
@@ -656,6 +657,9 @@
         </div>
         <!-- Mobile Menu Area End Here -->
       </header>
+=======
+      @include('front.layout.master')
+>>>>>>> 63ee33d74e001b127141a56bc5c9545d200d0109
       <!-- Header Area End Here -->
       <!-- Begin Li's Breadcrumb Area -->
       <div class="breadcrumb-area">
@@ -775,7 +779,7 @@
                   </div>
                  
                   <div class="single-add-to-cart">
-                    <form action="#" class="cart-quantity">
+                    <form action="\cart" class="cart-quantity">
                       <div class="quantity">
                         <label>Quantity</label>
                         <div class="cart-plus-minus">
@@ -793,7 +797,7 @@
                         </div>
                       </div>
                       <button class="add-to-cart" type="submit">
-                        Add to cart
+                        <a href="\cart\add/{{$products->id}}">add to cart</a>
                       </button>
                     </form>
                   </div>
@@ -1108,12 +1112,12 @@
                         <div class="product_desc_info">
                           <div class="product-review">
                             <h5 class="manufacturer">
-                              <a href="\shop\product/{{$relatedProduct->id}}">{{$relatedProduct->name}}</a>
+                              <a href="\shop\product/{{$relatedProduct->id}}">{{$relatedProduct->description}}</a>
                             </h5>
                             
                           </div>
                           <h4>
-                            <a class="product_name" href="">
+                            <a class="product_name" href="\shop\product/{{$relatedProduct->id}}">
                               {{$relatedProduct->name}}
                             </a>
                           </h4>
