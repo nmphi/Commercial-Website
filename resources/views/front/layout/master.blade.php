@@ -91,7 +91,7 @@
           <!-- Begin Header Middle Right Area -->
           <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
             <!-- Begin Header Middle Searchbox Area -->
-            <form action="shop" class="hm-searchbox">
+            <form action="\shop" class="hm-searchbox">
               <select class="nice-select select-search-category">
                 <option value="0">All</option>
                 <option value="10">Laptops</option>
@@ -195,58 +195,39 @@
                   <span></span>
                   <div class="minicart">
                     <ul class="minicart-product-list">
+                      @foreach (Cart::content() as $cart)
                       <li>
                         <a
-                          href="single-product.html"
+                          href="\shop/product/{{$cart->id}}"
                           class="minicart-product-image"
                         >
                           <img
-                            src="images/product/small-size/3.jpg"
+                            src="/front/images/product/{{$cart->options->images[0]->path}}"
                             alt="cart products"
                           />
                         </a>
                         <div class="minicart-product-details">
                           <h6>
-                            <a href="single-product.html">
-                              Aenean eu tristique
+                            <a href="\shop/product/{{$cart->id}}">
+                              {{$cart->name}}
+                              
                             </a>
                           </h6>
-                          <span>£80 x 1</span>
+                          <span>${{$cart->price}} x {{$cart->qty}}</span>
                         </div>
                         <button class="close">
                           <i class="fa fa-close"></i>
                         </button>
                       </li>
-                      <li>
-                        <a
-                          href="single-product.html"
-                          class="minicart-product-image"
-                        >
-                          <img
-                            src="images/product/small-size/4.jpg"
-                            alt="cart products"
-                          />
-                        </a>
-                        <div class="minicart-product-details">
-                          <h6>
-                            <a href="single-product.html">
-                              Aenean eu tristique
-                            </a>
-                          </h6>
-                          <span>£80 x 1</span>
-                        </div>
-                        <button class="close">
-                          <i class="fa fa-close"></i>
-                        </button>
-                      </li>
+                      @endforeach
                     </ul>
                     <p class="minicart-total">
                       SUBTOTAL:
-                      <span>£160</span>
+                      <span>{{Cart::subtotal()}}</span>
                     </p>
                     <div class="minicart-button">
                       <a
-                        href="./cart"
+                        href="\cart"
                         class="li-button li-button-dark li-button-fullwidth li-button-sm"
                       >
                         <span>View Full Cart</span>
@@ -292,7 +273,7 @@
                             </ul>
                           </li> -->
                   <li class="megamenu-holder">
-                    <a href="./shop">Shop</a>
+                    <a href="\shop">Shop</a>
                     <!-- <ul class="megamenu hb-megamenu">
                               <li>
                                 <a href="shop-left-sidebar.html">
@@ -553,7 +534,7 @@
                           <li><a href="compare.html">Compare</a></li>
                           <li><a href="wishlist.html">Wishlist</a></li>
                           <li>
-                            <a href="./cart">Shopping Cart</a>
+                            <a href="\cart">Shopping Cart</a>
                           </li>
                         </ul>
                       </li>
