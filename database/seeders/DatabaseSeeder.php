@@ -28,6 +28,16 @@ class DatabaseSeeder extends Seeder
                 'level' => 0,
                 'description' => null,
             ],
+            [
+                'id' => 6,
+                'name' => 'tung',
+                'email' => 'tung@gmail.com',
+                'password' => Hash::make('123456'),
+                'avatar' => null,
+                'level' => 2,
+                'description' => null,
+
+            ],
           
             [
                 'id' => 4,
@@ -35,7 +45,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'BrandonKelley@gmail.com',
                 'password' => Hash::make('123456'),
                 'avatar' => 'avatar-1.png',
-                'level' => 1,
+                'level' => 2,
                 'description' => null,
             ],
             [
@@ -44,7 +54,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'RoyBanks@gmail.com',
                 'password' => Hash::make('123456'),
                 'avatar' => 'avatar-2.png',
-                'level' => 1,
+                'level' => 2,
                 'description' => null,
             ],
         ]);

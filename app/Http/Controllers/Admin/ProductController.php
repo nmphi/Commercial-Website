@@ -17,8 +17,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        //$products = $this->productService->searchAndPaginate('name', $request->get('search'));
+
+
         //
         return view('admin.product.index');
     }
