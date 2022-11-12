@@ -24,9 +24,9 @@
                   <div class="ht-setting-trigger"><span>Setting</span></div>
                   <div class="setting ht-setting">
                     <ul class="ht-setting-list">
-                      <li><a href=".account/login-register">My Account</a></li>
+                      <li><a href="\account/login-register">My Account</a></li>
                       <li><a href="checkout.html">Checkout</a></li>
-                      <li><a href=".account/login-register">Sign In</a></li>
+                      <li><a href="\account/login-register">Sign In</a></li>
                     </ul>
                   </div>
                 </li>
@@ -91,11 +91,7 @@
           <!-- Begin Header Middle Right Area -->
           <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
             <!-- Begin Header Middle Searchbox Area -->
-<<<<<<< HEAD
-            <form action="shop" class="hm-searchbox">
-=======
             <form action="\shop" class="hm-searchbox">
->>>>>>> 63ee33d74e001b127141a56bc5c9545d200d0109
               <select class="nice-select select-search-category">
                 <option value="0">All</option>
                 <option value="10">Laptops</option>
@@ -199,15 +195,6 @@
                   <span></span>
                   <div class="minicart">
                     <ul class="minicart-product-list">
-<<<<<<< HEAD
-                      <li>
-                        <a
-                          href="single-product.html"
-                          class="minicart-product-image"
-                        >
-                          <img
-                            src="images/product/small-size/3.jpg"
-=======
                       @foreach (Cart::content() as $cart)
                       <li>
                         <a
@@ -216,63 +203,22 @@
                         >
                           <img
                             src="/front/images/product/{{$cart->options->images[0]->path}}"
->>>>>>> 63ee33d74e001b127141a56bc5c9545d200d0109
                             alt="cart products"
                           />
                         </a>
                         <div class="minicart-product-details">
                           <h6>
-<<<<<<< HEAD
-                            <a href="single-product.html">
-                              Aenean eu tristique
-                            </a>
-                          </h6>
-                          <span>£80 x 1</span>
-                        </div>
-                        <button class="close">
-                          <i class="fa fa-close"></i>
-                        </button>
-                      </li>
-                      <li>
-                        <a
-                          href="single-product.html"
-                          class="minicart-product-image"
-                        >
-                          <img
-                            src="images/product/small-size/4.jpg"
-                            alt="cart products"
-                          />
-                        </a>
-                        <div class="minicart-product-details">
-                          <h6>
-                            <a href="single-product.html">
-                              Aenean eu tristique
-                            </a>
-                          </h6>
-                          <span>£80 x 1</span>
-=======
                             <a href="\shop/product/{{$cart->id}}">
                               {{$cart->name}}
                               
                             </a>
                           </h6>
                           <span>${{$cart->price}} x {{$cart->qty}}</span>
->>>>>>> 63ee33d74e001b127141a56bc5c9545d200d0109
                         </div>
                         <button class="close">
                           <i class="fa fa-close"></i>
                         </button>
                       </li>
-<<<<<<< HEAD
-                    </ul>
-                    <p class="minicart-total">
-                      SUBTOTAL:
-                      <span>£160</span>
-                    </p>
-                    <div class="minicart-button">
-                      <a
-                        href="./cart"
-=======
                       @endforeach
                     </ul>
                     <p class="minicart-total">
@@ -282,7 +228,6 @@
                     <div class="minicart-button">
                       <a
                         href="\cart"
->>>>>>> 63ee33d74e001b127141a56bc5c9545d200d0109
                         class="li-button li-button-dark li-button-fullwidth li-button-sm"
                       >
                         <span>View Full Cart</span>
@@ -328,11 +273,7 @@
                             </ul>
                           </li> -->
                   <li class="megamenu-holder">
-<<<<<<< HEAD
-                    <a href="./shop">Shop</a>
-=======
                     <a href="\shop">Shop</a>
->>>>>>> 63ee33d74e001b127141a56bc5c9545d200d0109
                     <!-- <ul class="megamenu hb-megamenu">
                               <li>
                                 <a href="shop-left-sidebar.html">
@@ -587,21 +528,13 @@
                         <a href="index.html">Other Pages</a>
                         <ul>
                           <li>
-<<<<<<< HEAD
-                            <a href=".account/login-register">My Account</a>
-=======
-                            <a href="login-register.html">My Account</a>
->>>>>>> 63ee33d74e001b127141a56bc5c9545d200d0109
+                            <a href="\account/login-register">My Account</a>
                           </li>
                           <li><a href="checkout.html">Checkout</a></li>
                           <li><a href="compare.html">Compare</a></li>
                           <li><a href="wishlist.html">Wishlist</a></li>
                           <li>
-<<<<<<< HEAD
-                            <a href="./cart">Shopping Cart</a>
-=======
                             <a href="\cart">Shopping Cart</a>
->>>>>>> 63ee33d74e001b127141a56bc5c9545d200d0109
                           </li>
                         </ul>
                       </li>
