@@ -44,7 +44,7 @@ Route::prefix('shop')->group(function(){
     Route::get('/product/{id}', [App\Http\Controllers\Front\ShopController::class, 'show']);
     Route::post('/product/{id}', [App\Http\Controllers\Front\ShopController::class, 'postComment']);
     Route::get('/', [App\Http\Controllers\Front\ShopController::class, 'index']);
-    Route::get('category/{categoryName}', [App\Http\Controllers\Front\ShopController::class, 'category']);
+    
 });
 
 Route::prefix('cart')->group(function(){
@@ -53,9 +53,11 @@ Route::prefix('cart')->group(function(){
     
 });
 
-Route::prefix('account')->group(function(){ 
-    Route::get('/login-register', [App\Http\Controllers\Front\AccountController::class, 'login']);
+Route::prefix('account')->name('account.')->group(function(){ 
+    Route::get('/login-register', [App\Http\Controllers\Front\AccountController::class, 'login'])->name('login-register');
     Route::post('/login-register', [App\Http\Controllers\Front\AccountController::class, 'checkLogin']);
+
+    Route::get('logout', [App\Http\Controllers\Front\AccountController::class, 'logout']);
 });
 
 

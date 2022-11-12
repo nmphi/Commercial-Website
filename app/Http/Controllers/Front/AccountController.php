@@ -16,7 +16,7 @@ class AccountController extends Controller
 
     public function checkLogin(Request $request)
     {
-        $sredentials = [
+        $credentials = [
             'email'=> $request->email,
             'password'=> $request->password,
             'level'=> 2, //normal user
@@ -24,14 +24,21 @@ class AccountController extends Controller
 
         $remember = $request->remember;
 
-        if(Auth::attempt($sredentials, $remember)) {
-            return redirect('');
+        if(Auth::attempt($credentials, $remember)) {
+           return redirect('');
+           
         } else {
             return back()
-                ->with('notification', 'ERROR: Email or Password is wrong');
-
+                ->with('notifications', 'ERROR: Email or Password is wrong');
         }
     }
+
+    public function logout() 
+    {
+        Auth::logout();
+                return back();
+    }
+    
 
 
 }

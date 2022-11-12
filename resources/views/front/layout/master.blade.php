@@ -20,16 +20,34 @@
             <div class="header-top-right">
               <ul class="ht-menu">
                 <!-- Begin Setting Area -->
-                <li>
-                  <div class="ht-setting-trigger"><span>Setting</span></div>
-                  <div class="setting ht-setting">
-                    <ul class="ht-setting-list">
-                      <li><a href=".account/login-register">My Account</a></li>
-                      <li><a href="checkout.html">Checkout</a></li>
-                      <li><a href=".account/login-register">Sign In</a></li>
-                    </ul>
-                  </div>
-                </li>
+                @if(Auth::check())
+                    <li>
+                      <div class="ht-setting-trigger">
+                        <span>
+                            <i class="fa fa-user"></i>
+                            {{Auth::user()->name}}
+                        </span>
+                      </div>
+                      <div class="setting ht-setting">
+                        <ul class="ht-setting-list">
+                          <li><a href="\account/login-register">My Account</a></li>
+                          <li><a href="checkout.html">Checkout</a></li>
+                          <li><a href="/account/logout">Sign Out</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                @else 
+                    <li>
+                      <div class="ht-setting-trigger"><span>Setting</span></div>
+                      <div class="setting ht-setting">
+                        <ul class="ht-setting-list">
+                          <li><a href="\account/login-register">My Account</a></li>
+                          <li><a href="checkout.html">Checkout</a></li>
+                          <li><a href="\account/login-register">Sign In</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                @endif
                 <!-- Setting Area End Here -->
                 <!-- Begin Currency Area -->
                 <li>
@@ -195,13 +213,14 @@
                   <span></span>
                   <div class="minicart">
                     <ul class="minicart-product-list">
+                      @foreach (Cart::content() as $cart)
                       <li>
                         <a
-                          href="single-product.html"
+                          href="\shop/product/{{$cart->id}}"
                           class="minicart-product-image"
                         >
                           <img
-                            src="images/product/small-size/3.jpg"
+                            src="/front/images/product/{{$cart->options->images[0]->path}}"
                             alt="cart products"
                           />
                         </a>
@@ -272,11 +291,7 @@
                             </ul>
                           </li> -->
                   <li class="megamenu-holder">
-<<<<<<< HEAD
-                    <a href="./shop">Shop</a>
-=======
                     <a href="\shop">Shop</a>
->>>>>>> 63ee33d74e001b127141a56bc5c9545d200d0109
                     <!-- <ul class="megamenu hb-megamenu">
                               <li>
                                 <a href="shop-left-sidebar.html">
@@ -531,21 +546,13 @@
                         <a href="index.html">Other Pages</a>
                         <ul>
                           <li>
-<<<<<<< HEAD
-                            <a href=".account/login-register">My Account</a>
-=======
-                            <a href="login-register.html">My Account</a>
->>>>>>> 63ee33d74e001b127141a56bc5c9545d200d0109
+                            <a href="\account/login-register">My Account</a>
                           </li>
                           <li><a href="checkout.html">Checkout</a></li>
                           <li><a href="compare.html">Compare</a></li>
                           <li><a href="wishlist.html">Wishlist</a></li>
                           <li>
-<<<<<<< HEAD
-                            <a href="./cart">Shopping Cart</a>
-=======
                             <a href="\cart">Shopping Cart</a>
->>>>>>> 63ee33d74e001b127141a56bc5c9545d200d0109
                           </li>
                         </ul>
                       </li>

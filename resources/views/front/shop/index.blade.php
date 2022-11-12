@@ -276,13 +276,21 @@
                 <div class="filter-sub-area pt-sm-10 pt-xs-10">
                   <h5 class="filter-sub-titel">Categories</h5>
                   <div class="categori-checkbox">
-                    <form action="#">
+                    <form action="shop">
                       <ul>
-                        @foreach ($categories as $productCategory)
+                        
+                        @foreach ($categories as $category)
                         <li>
-                          <input type="checkbox" name="product-categori" />
-                          <a href="shop/category/{{$productCategory->name}}">{{$productCategory->name}}</a>
+                          <label for="bc-{{$category->id}}">
+                          <input type="checkbox" 
+                           name="category[{{ $category->id}}]"
+                           {{(request('category')[$category->id] ?? '')== 'on' ? 'checked' : '' }}
+                           onchange="this.form.submit();" />
+                           {{$category->name}} 
+                         </label>
                         </li>
+                        
+                        
                         @endforeach
                        
                       </ul>
