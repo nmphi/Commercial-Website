@@ -69,8 +69,10 @@
                                         </thead>
                                         <tbody>
 
+                                        @foreach($users as $user)
+
                                             <tr>
-                                                <td class="text-center text-muted">#01</td>
+                                                <td class="text-center text-muted">#{{ $users->id }}</td>
                                                 <td>
                                                     <div class="widget-content p-0">
                                                         <div class="widget-content-wrapper">
@@ -79,25 +81,25 @@
                                                                     <img width="40" class="rounded-circle"
                                                                         data-toggle="tooltip" title="Image"
                                                                         data-placement="bottom"
-                                                                        src="assets/images/_default-user.png" alt="">
+                                                                        src="front/img/user/{{ $user->avatar ?? 'default-avatar.jpg'}}" alt="">
                                                                 </div>
                                                             </div>
                                                             <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">CodeLean</div>
+                                                                <div class="widget-heading">{{ $user->name }}</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="text-center">info@CodeLean.vn</td>
+                                                <td class="text-center">{{ $user->email}}</td>
                                                 <td class="text-center">
-                                                    Admin
+                                                    {{ \App\Utilities\Constant::$user_level[$user->level] }}
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="./user-show.html"
+                                                    <a href="./admin/user/{{ $user->id }}"
                                                         class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                                         Details
                                                     </a>
-                                                    <a href="./user-edit.html" data-toggle="tooltip" title="Edit"
+                                                    <a href="./admin/user/{{ $user->id }}/edit" data-toggle="tooltip" title="Edit"
                                                         data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                         <span class="btn-icon-wrapper opacity-8">
                                                             <i class="fa fa-edit fa-w-20"></i>

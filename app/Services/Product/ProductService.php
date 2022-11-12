@@ -29,4 +29,5 @@ class ProductService extends BaseServices implements ProductServiceInterface{
     public function getRelatedProduct($product){
         return $this->repository->getRelatedProduct($product);
     }
+    
 }
