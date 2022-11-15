@@ -81,8 +81,14 @@
               <form action="" method="POST">
                 @csrf
                 <div class="login-form">
-                  <h4 class="login-title">Login</h4>
 
+                  @if(session('notifications'))
+                    <div class="alert alert-warning" role="alert">
+                      {{ session('notifications') }}
+                    </div>
+                  @endif
+                  
+                  <h4 class="login-title">Login</h4>
                   <div class="row">
                     <div class="col-md-12 col-12 mb-20">
                       <label for="email" id="email">Email Address*</label>

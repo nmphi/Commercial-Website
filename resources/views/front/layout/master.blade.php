@@ -20,16 +20,34 @@
             <div class="header-top-right">
               <ul class="ht-menu">
                 <!-- Begin Setting Area -->
-                <li>
-                  <div class="ht-setting-trigger"><span>Setting</span></div>
-                  <div class="setting ht-setting">
-                    <ul class="ht-setting-list">
-                      <li><a href="\account/login-register">My Account</a></li>
-                      <li><a href="checkout.html">Checkout</a></li>
-                      <li><a href="\account/login-register">Sign In</a></li>
-                    </ul>
-                  </div>
-                </li>
+                @if(Auth::check())
+                    <li>
+                      <div class="ht-setting-trigger">
+                        <span>
+                            <i class="fa fa-user"></i>
+                            {{Auth::user()->name}}
+                        </span>
+                      </div>
+                      <div class="setting ht-setting">
+                        <ul class="ht-setting-list">
+                          <li><a href="\account/login-register">My Account</a></li>
+                          <li><a href="checkout.html">Checkout</a></li>
+                          <li><a href="/account/logout">Sign Out</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                @else 
+                    <li>
+                      <div class="ht-setting-trigger"><span>Setting</span></div>
+                      <div class="setting ht-setting">
+                        <ul class="ht-setting-list">
+                          <li><a href="\account/login-register">My Account</a></li>
+                          <li><a href="checkout.html">Checkout</a></li>
+                          <li><a href="\account/login-register">Sign In</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                @endif
                 <!-- Setting Area End Here -->
                 <!-- Begin Currency Area -->
                 <li>

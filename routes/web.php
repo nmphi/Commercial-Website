@@ -57,9 +57,11 @@ Route::prefix('cart')->group(function(){
     
 });
 
-Route::prefix('account')->group(function(){ 
-    Route::get('/login-register', [App\Http\Controllers\Front\AccountController::class, 'login']);
+Route::prefix('account')->name('account.')->group(function(){ 
+    Route::get('/login-register', [App\Http\Controllers\Front\AccountController::class, 'login'])->name('login-register');
     Route::post('/login-register', [App\Http\Controllers\Front\AccountController::class, 'checkLogin']);
+
+    Route::get('logout', [App\Http\Controllers\Front\AccountController::class, 'logout']);
 });
 
 
