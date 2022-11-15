@@ -32,6 +32,28 @@ class CartController extends Controller
         
 
     }
+    public function delete($rowId){
+       
+        
+        Cart::remove($rowId);
+       
+        return back();
+
+        
+
+    }
+    public function increaseQty($rowId){
+        $product = Cart::get($rowId);
+        $qty = $product->qty+1;
+        Cart::update($rowId, $qty);
+        return back();
+    }
+    public function decreaseQty($rowId){
+        $product = Cart::get($rowId);
+        $qty = $product->qty-1;
+        Cart::update($rowId, $qty);
+        return back();
+    }
     public function index(){
         $carts = Cart::content();
         $total = Cart::total();

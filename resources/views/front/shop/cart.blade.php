@@ -99,7 +99,7 @@
                       @foreach ($carts as $cart)
                       <tr>
                         <td class="li-product-remove">
-                          <a href="#"><i class="fa fa-times"></i></a>
+                          <a href="cart/delete/{{$cart->rowId}}"><i class="fa fa-times"></i></a>
                         </td>
                         <td class="li-product-thumbnail">
                           <a href="#">
@@ -117,23 +117,13 @@
                           <span class="amount">${{$cart->price}}</span>
                         </td>
                         <td class="quantity">
-                          <label>Quantity</label>
-                          <div class="cart-plus-minus">
-                            <input
-                              class="cart-plus-minus-box"
-                              value="{{$cart->qty}}"
-                              type="text"
-                            />
-                            <div class="dec qtybutton">
-                              <i class="fa fa-angle-down"></i>
-                            </div>
-                            <div class="inc qtybutton">
-                              <i class="fa fa-angle-up"></i>
-                            </div>
-                          </div>
+                          {{$cart->qty}}
+                          
+                          <button class="add-to-cart"><a href="cart/decreaseQty/{{$cart->rowId}}">-</a></button>
+                          <button class="add-to-cart"><a href="cart/increaseQty/{{$cart->rowId}}">+</button>
                         </td>
                         <td class="product-subtotal">
-                          <span class="amount">{{$cart->total}}</span>
+                          <span class="amount">${{$cart->total}}</span>
                         </td>
                       </tr>
                       @endforeach

@@ -188,8 +188,8 @@
                   <div class="hm-minicart-trigger">
                     <span class="item-icon"></span>
                     <span class="item-text">
-                      £160
-                      <span class="cart-item-count">2</span>
+                      ${{Cart::subtotal()}}
+                      <span class="cart-item-count">{{Cart::count()}}</span>
                     </span>
                   </div>
                   <span></span>
@@ -215,15 +215,17 @@
                           </h6>
                           <span>${{$cart->price}} x {{$cart->qty}}</span>
                         </div>
-                        <button class="close">
-                          <i class="fa fa-close"></i>
-                        </button>
+                        
+                          
+                            <a href="cart/delete/{{$cart->rowId}}"><i class="fa fa-close" class="li-button li-button-dark li-button-fullwidth li-button-sm"></i></a>
+                          
+                        
                       </li>
                       @endforeach
                     </ul>
                     <p class="minicart-total">
                       SUBTOTAL:
-                      <span>{{Cart::subtotal()}}</span>
+                      <span>${{Cart::subtotal()}}</span>
                     </p>
                     <div class="minicart-button">
                       <a
