@@ -31,7 +31,7 @@
                       <div class="setting ht-setting">
                         <ul class="ht-setting-list">
                           <li><a href="\account/login-register">My Account</a></li>
-                          <li><a href="checkout.html">Checkout</a></li>
+                          <li><a href="\checkout">Checkout</a></li>
                           <li><a href="/account/logout">Sign Out</a></li>
                         </ul>
                       </div>
@@ -42,7 +42,7 @@
                       <div class="setting ht-setting">
                         <ul class="ht-setting-list">
                           <li><a href="\account/login-register">My Account</a></li>
-                          <li><a href="checkout.html">Checkout</a></li>
+                          <li><a href="\checkout">Checkout</a></li>
                           <li><a href="\account/login-register">Sign In</a></li>
                         </ul>
                       </div>
@@ -253,7 +253,7 @@
                         <span>View Full Cart</span>
                       </a>
                       <a
-                        href="checkout.html"
+                        href="\checkout"
                         class="li-button li-button-fullwidth li-button-sm"
                       >
                         <span>Checkout</span>

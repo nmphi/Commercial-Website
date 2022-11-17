@@ -65,3 +65,11 @@ Route::prefix('account')->name('account.')->group(function(){
 });
 
 
+Route::prefix('checkout')->group(function(){
+    Route::get('/', [App\Http\Controllers\Front\CheckOutController::class, 'index']);
+    Route::post('/', [App\Http\Controllers\Front\CheckOutController::class, 'addOder']);
+    
+    
+});
+
+
