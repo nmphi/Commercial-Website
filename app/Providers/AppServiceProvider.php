@@ -28,6 +28,20 @@ use App\Repositories\User\UserRepository;
 use App\Repositories\User\UserRepositoryInterface;
 use App\Services\Brand\BrandService;
 use App\Services\Brand\BrandServiceInterface;
+
+
+//Order
+use App\Repositories\Order\OrderRepository;
+use App\Repositories\Order\OrderRepositoryInterface;
+use App\Services\Order\OrderService;
+use App\Services\Order\OrderServiceInterface;
+
+
+//OrderDetail
+use App\Repositories\OrderDetail\OrderDetailRepository;
+use App\Repositories\OrderDetail\OrderDetailRepositoryInterface;
+use App\Services\OrderDetail\OrderDetailService;
+use App\Services\OrderDetail\OrderDetailServiceInterface;
 use App\Services\User\UserService;
 use App\Services\User\UserServiceInterface;
 use Illuminate\Support\ServiceProvider;
@@ -92,6 +106,30 @@ class AppServiceProvider extends ServiceProvider
 
         );
 
+
+        //Order
+        $this->app->singleton(
+            OrderRepositoryInterface::class,
+            OrderRepository::class
+
+        );
+        $this->app->singleton(
+            OrderServiceInterface::class,
+            OrderService::class
+        );
+
+
+         //OrderDetail
+         $this->app->singleton(
+            OrderDetailRepositoryInterface::class,
+            OrderDetailRepository::class
+
+        );
+        $this->app->singleton(
+            OrderDetailServiceInterface::class,
+            OrderDetailService::class
+        );
+
         //User
         $this->app->singleton(
             UserRepositoryInterface::class,
@@ -99,9 +137,10 @@ class AppServiceProvider extends ServiceProvider
         );
         $this->app->singleton(
             UserServiceInterface::class,
-            UserService::class,
+            UserService::class
         );
-        
+
+
     }
 
     /**

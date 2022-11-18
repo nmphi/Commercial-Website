@@ -10,7 +10,7 @@ class Order extends Model
     use HasFactory;
     protected $table = 'orders';
     protected $primaryKey = 'id';
-    protected $guards = [];
+    protected $fillable = ['country', 'first_name', 'last_name', 'company_name', 'street_address', 'town_city', 'postcode_zip', 'email', 'phone'];
 
     public function order_detail(){
         return $this->hasMany(OrderDetail::class, 'order_id', 'id');

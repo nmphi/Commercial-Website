@@ -31,7 +31,7 @@
                       <div class="setting ht-setting">
                         <ul class="ht-setting-list">
                           <li><a href="\account/login">My Account</a></li>
-                          <li><a href="checkout.html">Checkout</a></li>
+                          <li><a href="\checkout">Checkout</a></li>
                           <li><a href="/account/logout">Sign Out</a></li>
                         </ul>
                       </div>
@@ -206,8 +206,8 @@
                   <div class="hm-minicart-trigger">
                     <span class="item-icon"></span>
                     <span class="item-text">
-                      £160
-                      <span class="cart-item-count">2</span>
+                      ${{Cart::subtotal()}}
+                      <span class="cart-item-count">{{Cart::count()}}</span>
                     </span>
                   </div>
                   <span></span>
@@ -233,15 +233,17 @@
                           </h6>
                           <span>${{$cart->price}} x {{$cart->qty}}</span>
                         </div>
-                        <button class="close">
-                          <i class="fa fa-close"></i>
-                        </button>
+                        
+                          
+                            <a href="cart/delete/{{$cart->rowId}}"><i class="fa fa-close" class="li-button li-button-dark li-button-fullwidth li-button-sm"></i></a>
+                          
+                        
                       </li>
                       @endforeach
                     </ul>
                     <p class="minicart-total">
                       SUBTOTAL:
-                      <span>{{Cart::subtotal()}}</span>
+                      <span>${{Cart::subtotal()}}</span>
                     </p>
                     <div class="minicart-button">
                       <a
@@ -251,7 +253,7 @@
                         <span>View Full Cart</span>
                       </a>
                       <a
-                        href="checkout.html"
+                        href="\checkout"
                         class="li-button li-button-fullwidth li-button-sm"
                       >
                         <span>Checkout</span>

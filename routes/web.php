@@ -49,7 +49,11 @@ Route::prefix('shop')->group(function(){
 
 Route::prefix('cart')->group(function(){
     Route::get('add/{id}', [App\Http\Controllers\Front\CartController::class, 'add']);
+    Route::get('delete/{rowId}', [App\Http\Controllers\Front\CartController::class, 'delete']);
     Route::get('', [App\Http\Controllers\Front\CartController::class, 'index']);
+    Route::get('increaseQty/{rowId}', [App\Http\Controllers\Front\CartController::class, 'increaseQty']);
+    Route::get('decreaseQty/{rowId}', [App\Http\Controllers\Front\CartController::class, 'decreaseQty']);
+    
     
 });
 
@@ -61,6 +65,14 @@ Route::prefix('account')->name('account.')->group(function(){
 
     Route::get('/register', [App\Http\Controllers\Front\AccountController::class, 'register']);
     Route::post('/register', [App\Http\Controllers\Front\AccountController::class, 'postRegister']);
+});
+
+
+Route::prefix('checkout')->group(function(){
+    Route::get('/', [App\Http\Controllers\Front\CheckOutController::class, 'index']);
+    Route::post('/', [App\Http\Controllers\Front\CheckOutController::class, 'addOder']);
+    
+    
 });
 
 
