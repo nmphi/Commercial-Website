@@ -30,7 +30,7 @@
                       </div>
                       <div class="setting ht-setting">
                         <ul class="ht-setting-list">
-                          <li><a href="\account/login-register">My Account</a></li>
+                          <li><a href="\account/login">My Account</a></li>
                           <li><a href="checkout.html">Checkout</a></li>
                           <li><a href="/account/logout">Sign Out</a></li>
                         </ul>
@@ -41,9 +41,9 @@
                       <div class="ht-setting-trigger"><span>Setting</span></div>
                       <div class="setting ht-setting">
                         <ul class="ht-setting-list">
-                          <li><a href="\account/login-register">My Account</a></li>
+                          <li><a href="\account/login">My Account</a></li>
                           <li><a href="checkout.html">Checkout</a></li>
-                          <li><a href="\account/login-register">Sign In</a></li>
+                          <li><a href="\account/login">Sign In</a></li>
                         </ul>
                       </div>
                     </li>
@@ -546,7 +546,7 @@
                         <a href="index.html">Other Pages</a>
                         <ul>
                           <li>
-                            <a href="\account/login-register">My Account</a>
+                            <a href="\account/login">My Account</a>
                           </li>
                           <li><a href="checkout.html">Checkout</a></li>
                           <li><a href="compare.html">Compare</a></li>

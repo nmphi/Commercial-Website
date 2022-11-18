@@ -1,8 +1,12 @@
 <?php
+namespace App\Services\User;
 
-namespace App\Service\User;
-use App\Service\BaseServices;
+use App\Services\BaseServices;
+use App\Repositories\User\UserRepositoryInterface;
 
-class UserService {
-
+class UserService extends BaseServices implements UserServiceInterface{
+    public $repository;
+    public function __construct(UserRepositoryInterface $UserRepositoryInterface) { 
+        $this->repository = $UserRepositoryInterface;
+    }
 }

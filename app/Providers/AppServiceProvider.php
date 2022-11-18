@@ -24,11 +24,12 @@ use App\Services\ProductCategory\ProductCategoryServiceInterface;
 //Brand
 use App\Repositories\Brand\BrandRepository;
 use App\Repositories\Brand\BrandRepositoryInterface;
+use App\Repositories\User\UserRepository;
+use App\Repositories\User\UserRepositoryInterface;
 use App\Services\Brand\BrandService;
 use App\Services\Brand\BrandServiceInterface;
-
-
-
+use App\Services\User\UserService;
+use App\Services\User\UserServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -90,6 +91,17 @@ class AppServiceProvider extends ServiceProvider
             BrandService::class
 
         );
+
+        //User
+        $this->app->singleton(
+            UserRepositoryInterface::class,
+            UserRepository::class,
+        );
+        $this->app->singleton(
+            UserServiceInterface::class,
+            UserService::class,
+        );
+        
     }
 
     /**
