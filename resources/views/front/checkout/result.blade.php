@@ -76,166 +76,23 @@
       <!--Checkout Area Strat-->
       <div class="checkout-area pt-60 pb-30">
         <div class="container">
-          
           <div class="row">
-            @if(Cart::count() > 0)
-            <div class="col-lg-6 col-12">
-              <form action="" method="post">
-                @csrf
-                <div class="checkbox-form">
-                  <h3>Billing Details</h3>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="checkout-form-list">
-                        <label>
-                          Country
-                          <span class="required">*</span>
-                        </label>
-                        <input placeholder="" type="text" name = "country" />
-                      
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="checkout-form-list">
-                        <label>
-                          First Name
-                          <span class="required">*</span>
-                        </label>
-                        <input placeholder="" type="text" name = "first_name" />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="checkout-form-list">
-                        <label>
-                          Last Name
-                          <span class="required">*</span>
-                        </label>
-                        <input placeholder="" type="text" name="last_name" />
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="checkout-form-list">
-                        <label>Company Name</label>
-                        <input placeholder="" type="text" name="company_name" />
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="checkout-form-list">
-                        <label>
-                          Address
-                          <span class="required">*</span>
-                        </label>
-                        <input placeholder="Street address" type="text" name="street_address" />
-                      </div>
-                    </div>
-                    
-                    <div class="col-md-12">
-                      <div class="checkout-form-list">
-                        <label>
-                          Town / City
-                          <span class="required">*</span>
-                        </label>
-                        <input type="text" name="town_city"/>
-                      </div>
-                    </div>
-                    
-                    <div class="col-md-6">
-                      <div class="checkout-form-list">
-                        <label>
-                          Postcode / Zip
-                          <span class="required">*</span>
-                        </label>
-                        <input placeholder="" type="text" name= "postcode_zip" />
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="checkout-form-list">
-                        <label>
-                          Email Address
-                          <span class="required">*</span>
-                        </label>
-                        <input placeholder="" type="email" name="email" />
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="checkout-form-list">
-                        <label>
-                          Phone
-                          <span class="required">*</span>
-                        </label>
-                        <input type="text" name="phone" />
-                      </div>
-                    </div>
-                  </div>                  
-                </div>
-            </div>
-           
-
-            <div class="col-lg-6 col-12">
-              <div class="your-order">
-                <h3>Your order</h3>
-                <div class="your-order-table table-responsive">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th class="cart-product-name">Product</th>
-                        <th class="cart-product-total">Total</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach ($carts as $cart)
-                      <tr class="cart_item">
-                        <td class="cart-product-name">
-                          {{$cart->name}}
-                          <strong class="product-quantity">× {{$cart->qty}}</strong>
-                        </td>
-                        <td class="cart-product-total">
-                          <span class="amount">${{$cart->total}}</span>
-                        </td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                    <tfoot>
-                      <tr class="cart-subtotal">
-                        <th>Cart Subtotal</th>
-                        <td><span class="amount">$ {{$subtotal}}</span></td>
-                      </tr>
-                      <tr class="order-total">
-                        <th>Order Total</th>
-                        <td>
-                          <strong><span class="amount">${{$total}}</span></strong>
-                        </td>
-                      </tr>
-                    </tfoot>
-                  </table>
-                </div>
-                
-                 
-
-                    
-                    <div class="order-button-payment">
-                      <input value="Place order" type="submit" />
-                    </div>
-                
-                  
-                </div>
-              </div>
-            </div>
-            @else
-            <div class="col-lg-3">
-              Your cart is empty
+            
+            <div class="col-lg-3">     
+                {{$notification}}
               <div class="minicart-button">
-                <a
-                 href="\shop"
-                 class="li-button li-button-dark li-button-fullwidth li-button-sm"
-                >
-                 <span>Continue Shopping</span>
-                </a>
-               </div>
-            </div>
-            @endif
-           </form>
+               <a
+                href="\shop"
+                class="li-button li-button-dark li-button-fullwidth li-button-sm"
+               >
+                <span>Continue Shopping</span>
+               </a>
+              </div>
+
+            </div>      
           </div>
+          
+         
         </div>
       </div>
       <!--Checkout Area End-->
@@ -252,7 +109,7 @@
                   <div class="li-shipping-inner-box">
                     <div class="shipping-icon">
                       <img
-                        src="images/shipping-icon/1.png"
+                        src="/front/images/shipping-icon/1.png"
                         alt="Shipping Icon"
                       />
                     </div>
@@ -268,7 +125,7 @@
                   <div class="li-shipping-inner-box">
                     <div class="shipping-icon">
                       <img
-                        src="images/shipping-icon/2.png"
+                        src="/front/images/shipping-icon/2.png"
                         alt="Shipping Icon"
                       />
                     </div>
@@ -287,7 +144,7 @@
                   <div class="li-shipping-inner-box">
                     <div class="shipping-icon">
                       <img
-                        src="images/shipping-icon/3.png"
+                        src="/front/images/shipping-icon/3.png"
                         alt="Shipping Icon"
                       />
                     </div>
@@ -306,7 +163,7 @@
                   <div class="li-shipping-inner-box">
                     <div class="shipping-icon">
                       <img
-                        src="images/shipping-icon/4.png"
+                        src="/front/images/shipping-icon/4.png"
                         alt="Shipping Icon"
                       />
                     </div>

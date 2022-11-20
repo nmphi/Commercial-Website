@@ -117,9 +117,10 @@
                           <span class="amount">${{$cart->price}}</span>
                         </td>
                         <td class="quantity">
-                          {{$cart->qty}}
+                          
                           
                           <button class="add-to-cart"><a href="cart/decreaseQty/{{$cart->rowId}}">-</a></button>
+                          {{$cart->qty}}
                           <button class="add-to-cart"><a href="cart/increaseQty/{{$cart->rowId}}">+</button>
                         </td>
                         <td class="product-subtotal">

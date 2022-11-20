@@ -40,6 +40,10 @@ class CheckOutController extends Controller
         // Xóa giỏ hàng 
         Cart::destroy();
         // Trả về kết quả
-        return 'success';
+        return redirect('checkout/result')->with('notification', 'Success');
+    }
+    public function result() {
+        $notification = session('notification');
+        return view('front.checkout.result', compact('notification'));
     }
 }
