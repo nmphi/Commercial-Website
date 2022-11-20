@@ -3996,7 +3996,7 @@ thead {
         opacity: 1; }
 
 /*-- Place Order --*/
-.register-button {
+.login-button {
 	display: block;
 	margin-top: 40px;
 	width: 140px;
@@ -4013,7 +4013,28 @@ thead {
 	border-radius: 3px;
 	transition: all 0.3s ease-in-out;
 }
-.register-button:hover {
+.login-button:hover {
+	background: #fed700;
+}
+.register-button button{
+	display: block;
+	margin-top: 0px;
+	width: 140px;
+	border-radius: 0;
+	height: 36px;
+	border: none;
+	line-height: 24px;
+	padding: 6px 20px;
+	float: right;
+	font-weight: 400;
+	text-transform: uppercase;
+	color: #ffffff;
+	background-color: #363f4d;
+	border-radius: 3px;
+	transition: all 0.3s ease-in-out;
+}
+
+.register-button button:hover {
 	background: #fed700;
 }
 /*----------------------------------------*/

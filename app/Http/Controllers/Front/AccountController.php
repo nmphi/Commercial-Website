@@ -3,15 +3,24 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Services\User\UserServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
-{
+{   
+    private $userService;
+
+    public function __construct(UserServiceInterface $userService) {
+        $this->userService = $userService;      
+    }
+
+
+
     //
     public function login()
     {
-        return view('front.account.login-register');
+        return view('front.account.login');
     }
 
     public function checkLogin(Request $request)
@@ -38,7 +47,28 @@ class AccountController extends Controller
         Auth::logout();
                 return back();
     }
-    
 
+    public function register()
+    {
+        return view('front.account.register');
+    }
 
+    public function postRegister(Request $request) {
+        if ($request->password != $request->password_confirmation) {
+            return back() 
+                ->with('notification', 'ERROR: Confirm Password not match');
+        }
+
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'level' => 2,
+        ];
+
+        $this->userService->create($data);
+
+        return back()
+            ->with('notification', 'Registered Success! Now you can login');
+    }
 }

@@ -87,7 +87,7 @@
                       {{ session('notifications') }}
                     </div>
                   @endif
-                  
+
                   <h4 class="login-title">Login</h4>
                   <div class="row">
                     <div class="col-md-12 col-12 mb-20">
@@ -115,16 +115,22 @@
                       </div>
                     </div>
                     <div class="col-md-4 mt-10 mb-20 text-left text-md-right">
-                      <a href="#">Forgotten pasward?</a>
+                      <a href="\account/register">Or create an account</a>
                     </div>
                     <div class="col-md-12">
-                      <button class="register-button mt-0">Login</button>
+                      <button class="login-button mt-0">Login</button>
                     </div>
+                    {{-- <div class="col-md-12">
+                      <a class="register-button mt-3" href="./front/register">
+                        <button>Register</button>
+                      </a>
+                    </div> --}}
+                    
                   </div>
                 </div>
               </form>
             </div>
-            <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+            {{-- <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
               <form action="#">
                 <div class="login-form">
                   <h4 class="login-title">Register</h4>
@@ -171,7 +177,7 @@
                   </div>
                 </div>
               </form>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>
