@@ -1,19 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Services\ProductCategory\ProductCategoryServiceInterface;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Services\User\UserServiceInterface;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class ProductCategoryController extends Controller
 {
-    private $userService;
+    private $productCategoryService;
+    public function __construct(ProductCategoryServiceInterface $productCategoryService){
+        $this->productCategoryService = $productCategoryService;
 
-    public function __construct(UserServiceInterface $userService)
-    {
-        $this->userService = $userService;
     }
     /**
      * Display a listing of the resource.
@@ -22,9 +19,9 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = $this->userService->searchAndPaginate('name', $request->get('search'));
-
-        return view('admin.user.index', compact('users'));   //
+        //
+        $productCategories = $this->productCategoryService->searchAndPaginate('name',$request->get('search'));
+        return view('admin.category.index', compact('productCategories'));
     }
 
     /**
@@ -35,6 +32,7 @@ class UserController extends Controller
     public function create()
     {
         //
+        return view('admin.category.create');
     }
 
     /**
@@ -46,51 +44,61 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+        $this->productCategoryService->create($data); 
+        return redirect('admin/category');
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
         //
-        return view('admin.user.show', compact('user')); 
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
         //
+        $category =$this->productCategoryService->find($id);
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
         //
+        $data = $request->all();
+        $this->productCategoryService->update($data, $id);
+        return redirect('admin/category');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
         //
+        $this->productCategoryService->delete($id);
+        return redirect('admin/category');
     }
 }

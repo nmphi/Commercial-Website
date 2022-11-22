@@ -20,5 +20,9 @@ class BaseServices implements ServicesInterface {
     public function delete(int $id){
         return $this->repository->delete($id);
     }
+    public function searchAndPaginate($searchBy, $keyword, $page = 5){
+        return $this->repository->searchAndPaginate($searchBy, $keyword, $page);
+
+    }
 }
 

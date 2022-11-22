@@ -22,9 +22,9 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 
-// Route::get('/',function(){
-//     return view('front.shop.index');
-// })
+//Route::get('/',function(){
+//    return view('front.shop.index');
+//});
 
 // admin
 // Route::prefix('admin')->group(function(){
@@ -36,6 +36,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->group(function(){
     Route::resource('user', \App\Http\Controllers\Admin\UserController::class);
     Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
+    Route::resource('category', \App\Http\Controllers\Admin\ProductCategoryController::class);
 
 });
 

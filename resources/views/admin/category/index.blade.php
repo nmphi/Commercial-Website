@@ -11,7 +11,7 @@
                                     <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
                                 </div>
                                 <div>
-                                    User
+                                    Category
                                     <div class="page-title-subheading">
                                         View, create, update, delete and manage.
                                     </div>
@@ -19,7 +19,7 @@
                             </div>
 
                             <div class="page-title-actions">
-                                <a href="./user-create.html" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
+                                <a href="category/create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
                                         <i class="fa fa-plus fa-w-20"></i>
                                     </span>
@@ -37,7 +37,7 @@
 
                                     <form>
                                         <div class="input-group">
-                                            <input type="search" name="search" id="search"
+                                            <input type="search" name="search" id="search" value="{{request('search')}}" placeholder="Search"
                                                 placeholder="Search everything" class="form-control">
                                             <span class="input-group-append">
                                                 <button type="submit" class="btn btn-primary">
@@ -61,51 +61,34 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center">ID</th>
-                                                <th>Full Name</th>
-                                                <th class="text-center">Email</th>
-                                                <th class="text-center">Level</th>
+                                                <th>Name</th>
                                                 <th class="text-center">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
-                                        @foreach($users as $user)
+                                            @foreach ($productCategories as $category)
 
                                             <tr>
-                                                <td class="text-center text-muted">#{{ $user->id }}</td>
+                                                <td class="text-center text-muted">{{$category->id}}</td>
                                                 <td>
                                                     <div class="widget-content p-0">
                                                         <div class="widget-content-wrapper">
-                                                            <div class="widget-content-left mr-3">
-                                                                <div class="widget-content-left">
-                                                                    <img width="40" class="rounded-circle"
-                                                                        data-toggle="tooltip" title="Image"
-                                                                        data-placement="bottom"
-                                                                        src="front/img/user/{{ $user->avatar ?? 'default-avatar.jpg'}}" alt="">
-                                                                </div>
-                                                            </div>
                                                             <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">{{ $user->name }}</div>
+                                                                <div class="widget-heading">{{$category->name}}</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="text-center">{{ $user->email}}</td>
                                                 <td class="text-center">
-                                                    {{ \App\Utilities\Constant::$user_level[$user->level] }}
-                                                </td>
-                                                <td class="text-center">
-                                                    <a href="\admin/user/{{ $user->id }}"
-                                                        class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                                        Details
-                                                    </a>
-                                                    <a href="\admin/user/{{ $user->id }}/edit" data-toggle="tooltip" title="Edit"
+                                                    <a href="\admin/category/{{$category->id}}/edit" data-toggle="tooltip" title="Edit"
                                                         data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                         <span class="btn-icon-wrapper opacity-8">
                                                             <i class="fa fa-edit fa-w-20"></i>
                                                         </span>
                                                     </a>
-                                                    <form class="d-inline" action="" method="post">
+                                                    <form class="d-inline" action="\admin/category/{{$category->id}}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
                                                         <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
                                                             type="submit" data-toggle="tooltip" title="Delete"
                                                             data-placement="bottom"
@@ -117,14 +100,15 @@
                                                     </form>
                                                 </td>
                                             </tr>
+                                            @endforeach
 
-                                        @endforeach  
+                                            
                                         </tbody>
                                     </table>
                                 </div>
 
                                 <div class="d-block card-footer">
-                                    {{$users->links()}}
+                                    {{$productCategories->links()}}
                                 </div>
 
                             </div>
@@ -132,5 +116,4 @@
                     </div>
                 </div>
                 <!-- End Main -->
-
-@endsection              
+@endsection    
