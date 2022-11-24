@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use App\Utilities\Constant;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Mockery\Generator\StringManipulation\Pass\ConstantsPass;
-use PHPUnit\TextUI\XmlConfiguration\Constant;
+//use Mockery\Generator\StringManipulation\Pass\ConstantsPass;
+//use PHPUnit\TextUI\XmlConfiguration\Constant;
+
 
 class CheckAdminLogin
 {
@@ -20,7 +21,13 @@ class CheckAdminLogin
     public function handle(Request $request, Closure $next)
     {
         if (Auth::guest()) {
-            return redirect()->route('admin/login');
+            return redirect()->guest('admin/login');
+        };
+        if (Auth::user()->level != Constant::user_level_host && Auth::user()->level != Constant::user_level_admin)
+        {
+            Auth::logout();
+            return redirect()->guest('admin/login');
+
         }
 
         return $next($request);
