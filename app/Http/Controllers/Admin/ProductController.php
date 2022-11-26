@@ -2,14 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Services\Product\ProductServiceInterface;
+use App\Services\Brand\BrandServiceInterface;
+use App\Services\ProductCategory\ProductCategoryServiceInterface;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     private $productService;
-    public function __construct(ProductServiceInterface $productService){
+    private $brandService;
+    private $productCategoryService;
+    public function __construct(
+    ProductServiceInterface $productService,
+    BrandServiceInterface $brandService,
+    ProductCategoryServiceInterface $productCategoryService){
         $this->productService = $productService;
+        $this->brandService = $brandService;
+        $this->productCategoryService = $productCategoryService;
 
     }
     /**
@@ -19,11 +28,11 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        //$products = $this->productService->searchAndPaginate('name', $request->get('search'));
+        $products = $this->productService->searchAndPaginate('name', $request->get('search'));
 
 
         //
-        return view('admin.product.index');
+        return view('admin.product.index', compact('products'));
     }
 
     /**
@@ -34,6 +43,9 @@ class ProductController extends Controller
     public function create()
     {
         //
+        $brands = $this->brandService->all();
+        $categories = $this->productCategoryService->all();
+        return view('admin.product.create', compact('brands', 'categories'));
     }
 
     /**
@@ -45,6 +57,9 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+        $product =$this->productService->create($data);
+        return redirect('admin/product/'.$product->id);
     }
 
     /**
@@ -56,6 +71,8 @@ class ProductController extends Controller
     public function show($id)
     {
         //
+        $product = $this->productService->find($id);
+        return view('admin.product.show', compact('product'));
     }
 
     /**

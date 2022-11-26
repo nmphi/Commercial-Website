@@ -149,8 +149,8 @@
                               <div class="product_desc_info">
                                 <div class="product-review">
                                   <h5 class="manufacturer">
-                                    <a href="product-details.html">
-                                      Graphic Corner
+                                    <a href="shop/product/{{$product->id}}">
+                                      {{ $product->product_category->name}}
                                     </a>
                                   </h5>
                                   <div class="rating-box">
@@ -249,10 +249,11 @@
                 </button>
                 <!-- btn-clear-all end -->
                 <!-- filter-sub-area start -->
+                <form action="shop">
                 <div class="filter-sub-area">
                   <h5 class="filter-sub-titel">Brand</h5>
                   <div class="categori-checkbox">
-                    <form action="shop">
+                   
                       <ul>
                         @foreach ($brands as $brand)
                         <li>
@@ -268,7 +269,7 @@
                         @endforeach
                        
                       </ul>
-                    </form>
+                    
                   </div>
                 </div>
                 <!-- filter-sub-area end -->
@@ -276,7 +277,7 @@
                 <div class="filter-sub-area pt-sm-10 pt-xs-10">
                   <h5 class="filter-sub-titel">Categories</h5>
                   <div class="categori-checkbox">
-                    <form action="shop">
+                    
                       <ul>
                         
                         @foreach ($categories as $category)
@@ -294,9 +295,9 @@
                         @endforeach
                        
                       </ul>
-                    </form>
                   </div>
                 </div>
+              </form>
                 <!-- filter-sub-area end -->
                 
                

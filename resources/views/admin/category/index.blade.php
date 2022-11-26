@@ -69,7 +69,7 @@
                                             @foreach ($productCategories as $category)
 
                                             <tr>
-                                                <td class="text-center text-muted">{{$category->id}}</td>
+                                                <td class="text-center text-muted">#{{$category->id}}</td>
                                                 <td>
                                                     <div class="widget-content p-0">
                                                         <div class="widget-content-wrapper">

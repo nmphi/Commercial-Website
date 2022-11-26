@@ -69,7 +69,7 @@
                                             @foreach ($brands as $brand)
 
                                             <tr>
-                                                <td class="text-center text-muted">{{$brand->id}}</td>
+                                                <td class="text-center text-muted">#{{$brand->id}}</td>
                                                 <td>
                                                     <div class="widget-content p-0">
                                                         <div class="widget-content-wrapper">
