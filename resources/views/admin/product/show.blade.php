@@ -100,7 +100,7 @@
 
                                     <div class="position-relative row form-group">
                                         <label for="qty"
-                                            class="col-md-3 text-md-right col-form-label">Qty</label>
+                                            class="col-md-3 text-md-right col-form-label">Quantity</label>
                                         <div class="col-md-9 col-xl-8">
                                             <p>{{$product->qty}}</p>
                                         </div>

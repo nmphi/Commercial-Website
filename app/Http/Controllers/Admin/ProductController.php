@@ -84,6 +84,10 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
+        $product = $this->productService->find($id);
+        $brands = $this->brandService->all();
+        $categories = $this->productCategoryService->all();
+        return view('admin.product.edit', compact('product', 'brands', 'categories'));
     }
 
     /**
@@ -96,6 +100,9 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = $request->all();
+        $this->productService->update($data, $id);
+        return redirect('admin/product/'.$id);
     }
 
     /**

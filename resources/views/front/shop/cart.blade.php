@@ -104,7 +104,7 @@
                         <td class="li-product-thumbnail">
                           <a href="#">
                             <img
-                              src="/front/images/product/{{$cart->options->images[0]->path}}"
+                              src="/front/images/product/{{$cart->options->images[0]->path ?? ''}}"
                               alt="Li's Product Image"
                               style="height:150px"
                             />

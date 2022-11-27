@@ -139,7 +139,7 @@
                             <div class="product-image">
                               <a href="shop/product/{{$product->id}}">
                                 <img
-                                  src="/front/images/product/{{$product->product_image[0]->path}}"
+                                  src="/front/images/product/{{$product->product_image[0]->path ?? ''}}"
                                   alt="Li's Product Image"
                                 />
                               </a>
