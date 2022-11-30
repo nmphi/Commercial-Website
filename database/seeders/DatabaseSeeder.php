@@ -18,6 +18,25 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         DB::table('users')->insert([
+            [
+                'id' => 6,
+                'name' => 'tung',
+                'email' => 'tung@gmail.com',
+                'password' => Hash::make('123456'),
+                'avatar' => null,
+                'level' => 0,
+                'description' => null,
+
+                'company_name' => 'VietHan',
+                'country' => 'VietNam',
+                'street_address' => '55 Huynh Van Nghe',
+                'postcode_zip' => '10000',
+                'town_city' => 'Da Nang',
+                'phone' => '0897217058',
+            ],
+        ]);
+
+        DB::table('users')->insert([
             
             [
                 'id' => 2,
@@ -28,17 +47,6 @@ class DatabaseSeeder extends Seeder
                 'level' => 0,
                 'description' => null,
             ],
-            [
-                'id' => 6,
-                'name' => 'tung',
-                'email' => 'tung@gmail.com',
-                'password' => Hash::make('123456'),
-                'avatar' => null,
-                'level' => 2,
-                'description' => null,
-
-            ],
-          
             [
                 'id' => 4,
                 'name' => 'Brandon Kelley',
