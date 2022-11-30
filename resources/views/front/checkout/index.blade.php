@@ -85,23 +85,16 @@
                 <div class="checkbox-form">
                   <h3>Billing Details</h3>
                   <div class="row">
-                    <div class="col-md-12">
-                      <div class="checkout-form-list">
-                        <label>
-                          Country
-                          <span class="required">*</span>
-                        </label>
-                        <input placeholder="" type="text" name = "country" />
-                      
-                      </div>
-                    </div>
+
+                    <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id ?? '' }}">
+                    
                     <div class="col-md-6">
                       <div class="checkout-form-list">
                         <label>
                           First Name
-                          <span class="required">*</span>
+                        <span class="required">*</span>
                         </label>
-                        <input placeholder="" type="text" name = "first_name" />
+                        <input placeholder="" type="text" name = "first_name" value="{{ Auth::user()->name ?? '' }}"/>
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -116,7 +109,17 @@
                     <div class="col-md-12">
                       <div class="checkout-form-list">
                         <label>Company Name</label>
-                        <input placeholder="" type="text" name="company_name" />
+                        <input placeholder="" type="text" name="company_name" value="{{ Auth::user()->company_name ?? '' }}"/>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="checkout-form-list">
+                        <label>
+                          Country
+                          <span class="required">*</span>
+                        </label>
+                        <input placeholder="" type="text" name = "country" value="{{ Auth::user()->country ?? '' }}"/>
+                      
                       </div>
                     </div>
                     <div class="col-md-12">
@@ -125,27 +128,25 @@
                           Address
                           <span class="required">*</span>
                         </label>
-                        <input placeholder="Street address" type="text" name="street_address" />
+                        <input placeholder="Street address" type="text" name="street_address" value="{{ Auth::user()->street_address ?? '' }}"/>
                       </div>
-                    </div>
-                    
+                    </div>         
                     <div class="col-md-12">
                       <div class="checkout-form-list">
                         <label>
                           Town / City
                           <span class="required">*</span>
                         </label>
-                        <input type="text" name="town_city"/>
+                        <input type="text" name="town_city"value="{{ Auth::user()->town_city ?? '' }}"/>
                       </div>
-                    </div>
-                    
+                    </div>                
                     <div class="col-md-6">
                       <div class="checkout-form-list">
                         <label>
                           Postcode / Zip
                           <span class="required">*</span>
                         </label>
-                        <input placeholder="" type="text" name= "postcode_zip" />
+                        <input placeholder="" type="text" name= "postcode_zip" value="{{ Auth::user()->postcode_zip ?? '' }}"/>
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -154,7 +155,7 @@
                           Email Address
                           <span class="required">*</span>
                         </label>
-                        <input placeholder="" type="email" name="email" />
+                        <input placeholder="" type="email" name="email" value="{{ Auth::user()->email ?? '' }}"/>
                       </div>
                     </div>
                     <div class="col-md-12">
@@ -163,7 +164,7 @@
                           Phone
                           <span class="required">*</span>
                         </label>
-                        <input type="text" name="phone" />
+                        <input type="text" name="phone" value="{{ Auth::user()->phone ?? '' }}"/>
                       </div>
                     </div>
                   </div>                  

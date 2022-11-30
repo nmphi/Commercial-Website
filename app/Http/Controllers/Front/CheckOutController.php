@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 use App\Services\Order\OrderServiceInterface;
 use App\Services\OrderDetail\OrderDetailServiceInterface;
 use App\Http\Controllers\Controller;
+use App\Utilities\Constant;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -24,7 +25,10 @@ class CheckOutController extends Controller
     }
     public function addOder(Request $request){
         // Thêm đơn hàng 
-        $order = $this->orderService->create($request->all());
+        $data = $request->all();
+        $data['status'] = Constant::order_status_ReceiveOders;
+
+        $order = $this->orderService->create($data);
         // Thêm chi tiết đơn hàng
         $carts = Cart::content();
         foreach ($carts as $cart){
