@@ -1,19 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Services\Brand\BrandServiceInterface;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Services\User\UserServiceInterface;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class BrandController extends Controller
 {
-    private $userService;
+    private $BrandService;
+    public function __construct(BrandServiceInterface $BrandService){
+        $this->BrandService = $BrandService;
 
-    public function __construct(UserServiceInterface $userService)
-    {
-        $this->userService = $userService;
     }
     /**
      * Display a listing of the resource.
@@ -22,9 +19,10 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = $this->userService->searchAndPaginate('name', $request->get('search'));
-
-        return view('admin.user.index', compact('users'));   //
+        //
+        $brands = $this->BrandService->searchAndPaginate('name',$request->get('search'));
+        return view('admin.brand.index', compact('brands'));
+        
     }
 
     /**
@@ -35,6 +33,7 @@ class UserController extends Controller
     public function create()
     {
         //
+        return view('admin.brand.create');
     }
 
     /**
@@ -46,51 +45,60 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+        $this->BrandService->create($data); 
+        return redirect('admin/brand');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
         //
-        return view('admin.user.show', compact('user')); 
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
         //
+        $brand =$this->BrandService->find($id);
+        return view('admin.brand.edit', compact('brand'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
         //
+        $data = $request->all();
+        $this->BrandService->update($data, $id);
+        return redirect('admin/brand');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
         //
+        $this->BrandService->delete($id);
+        return redirect('admin/brand');
     }
 }

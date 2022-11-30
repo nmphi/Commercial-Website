@@ -220,7 +220,7 @@
                           class="minicart-product-image"
                         >
                           <img
-                            src="/front/images/product/{{$cart->options->images[0]->path}}"
+                            src="/front/images/product/{{$cart->options->images[0]->path ?? ''}}"
                             alt="cart products"
                           />
                         </a>

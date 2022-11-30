@@ -84,11 +84,11 @@
                   <div class="lg-image">
                     <a
                       class="popup-img venobox vbox-item"
-                      href="/front/images/product/{{$products->product_image[0]->path}}"
+                      href="/front/images/product/{{$products->product_image[0]->path ?? ''}}"
                       data-gall="myGallery"
                     >
                       <img
-                        src="/front/images/product/{{$products->product_image[0]->path}}"
+                        src="/front/images/product/{{$products->product_image[0]->path ?? ''}}"
                         alt="product image"
                       />
                     </a>
@@ -501,7 +501,7 @@
                       <div class="product-image">
                         <a href="\shop\product/{{$relatedProduct->id}}">
                           <img
-                            src="/front/images/product/{{$relatedProduct->product_image[0]->path}}"
+                            src="/front/images/product/{{$relatedProduct->product_image[0]->path ?? ''}}"
                             alt="Li's Product Image"
                           />
                         </a>
@@ -885,7 +885,7 @@
                     <div class="product-details-images slider-navigation-1">
                       <div class="lg-image">
                         <img
-                          src="/front/images/product/{{$products->product_image[0]->path}}"
+                          src="/front/images/product/{{$products->product_image[0]->path ?? ''}}"
                           alt="product image"
                         />
                       </div>

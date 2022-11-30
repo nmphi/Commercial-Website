@@ -10,7 +10,19 @@ class Product extends Model
     use HasFactory;
     protected $table = 'products';
     protected $primaryKey = 'id';
-    protected $guards = [];
+    protected $fillable =[
+        'brand_id',
+        'product_category_id',
+        'name',
+        'description',
+        'content',
+        'price',
+        'qty',
+        'discount',
+        'weight',
+        'sku',
+        'featured'
+    ];
 
     public function product_comment(){
         return $this->hasMany(ProductComment::class, 'product_id', 'id');

@@ -22,9 +22,9 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 
-// Route::get('/',function(){
-//     return view('front.shop.index');
-// })
+//Route::get('/',function(){
+//    return view('front.shop.index');
+//});
 
 // admin
 // Route::prefix('admin')->group(function(){
@@ -33,9 +33,18 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //Admin
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->middleware('CheckAdminLogin')->group(function(){
+    Route::redirect('', 'admin/user');
     Route::resource('user', \App\Http\Controllers\Admin\UserController::class);
     Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
+    Route::resource('category', \App\Http\Controllers\Admin\ProductCategoryController::class);
+    Route::resource('brand', \App\Http\Controllers\Admin\BrandController::class);
+    Route::prefix('login')->group(function(){
+        Route::get('', [App\Http\Controllers\Admin\HomeController::class, 'getLogin'])->withoutMiddleware('CheckAdminLogin');
+        Route::post('', [App\Http\Controllers\Admin\HomeController::class, 'postLogin'])->withoutMiddleware('CheckAdminLogin');
+
+    });
+    Route::get('logout',[App\Http\Controllers\Admin\HomeController::class, 'logout']);
 
 });
 
@@ -71,6 +80,7 @@ Route::prefix('account')->name('account.')->group(function(){
 Route::prefix('checkout')->group(function(){
     Route::get('/', [App\Http\Controllers\Front\CheckOutController::class, 'index']);
     Route::post('/', [App\Http\Controllers\Front\CheckOutController::class, 'addOder']);
+    Route::get('/result', [App\Http\Controllers\Front\CheckOutController::class, 'result']);
     
     
 });
