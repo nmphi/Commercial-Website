@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Utilities\Constant;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Mail;
 
 class CheckOutController extends Controller
 {
@@ -40,7 +41,12 @@ class CheckOutController extends Controller
                 'total' =>$cart->qty*$cart->price,
             ];
             $this->orderDetailService->create($data);
+            ;
         }
+        //Gửi email
+        // $total = Cart::total();
+        // $subtotal = Cart::subtotal();
+        // $this->sendEmail($order, $total, $subtotal);
         // Xóa giỏ hàng 
         Cart::destroy();
         // Trả về kết quả
@@ -49,5 +55,16 @@ class CheckOutController extends Controller
     public function result() {
         $notification = session('notification');
         return view('front.checkout.result', compact('notification'));
+    }
+    public function sendEmail($order, $total, $subtotal) {
+        $email_to = $order->email;
+
+        Mail::send('front.checkout.email',
+            compact('order', 'total', 'subtotal'),
+            function ($message) use ($email_to) {
+                $message->from('itsukashidou1199@gmail.com', 'eShop');
+                $message->to($email_to, $email_to);
+                $message->subject('Order Notification');
+        });
     }
 }
