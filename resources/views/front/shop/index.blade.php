@@ -113,7 +113,7 @@
                       <option {{request('sort_by') == 'price-descending' ? 'selected' :''}} value="price-descending">Price (High &gt; Low) </option>
                       
                     </select>
-                    </form>
+                    
                     
                   </div>
                 </div>
@@ -249,7 +249,7 @@
                 </button>
                 <!-- btn-clear-all end -->
                 <!-- filter-sub-area start -->
-                <form action="shop">
+                
                 <div class="filter-sub-area">
                   <h5 class="filter-sub-titel">Brand</h5>
                   <div class="categori-checkbox">

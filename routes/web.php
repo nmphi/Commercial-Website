@@ -39,6 +39,7 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function(){
     Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
     Route::resource('category', \App\Http\Controllers\Admin\ProductCategoryController::class);
     Route::resource('brand', \App\Http\Controllers\Admin\BrandController::class);
+    Route::resource('product/{product_id}/image', \App\Http\Controllers\Admin\ProductImageController::class);
     Route::prefix('login')->group(function(){
         Route::get('', [App\Http\Controllers\Admin\HomeController::class, 'getLogin'])->withoutMiddleware('CheckAdminLogin');
         Route::post('', [App\Http\Controllers\Admin\HomeController::class, 'postLogin'])->withoutMiddleware('CheckAdminLogin');
@@ -49,6 +50,9 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function(){
 });
 
 // Client
+Route::prefix('')->group(function(){
+    Route::redirect('', 'shop');
+});
 Route::prefix('shop')->group(function(){
     Route::get('/product/{id}', [App\Http\Controllers\Front\ShopController::class, 'show']);
     Route::post('/product/{id}', [App\Http\Controllers\Front\ShopController::class, 'postComment']);
