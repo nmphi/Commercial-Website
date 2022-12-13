@@ -26,7 +26,7 @@ class CheckOutController extends Controller
     public function addOder(Request $request){
         // Thêm đơn hàng 
         $data = $request->all();
-        $data['status'] = Constant::order_status_ReceiveOders;
+        $data['status'] = Constant::order_status_ReceiveOrders;
 
         $order = $this->orderService->create($data);
         // Thêm chi tiết đơn hàng

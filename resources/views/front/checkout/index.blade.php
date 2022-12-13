@@ -88,22 +88,13 @@
 
                     <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id ?? '' }}">
                     
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                       <div class="checkout-form-list">
                         <label>
-                          First Name
+                         Name
                         <span class="required">*</span>
                         </label>
-                        <input placeholder="" type="text" name = "first_name" value="{{ Auth::user()->name ?? '' }}"/>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="checkout-form-list">
-                        <label>
-                          Last Name
-                          <span class="required">*</span>
-                        </label>
-                        <input placeholder="" type="text" name="last_name" />
+                        <input placeholder="" type="text" name = "name" value="{{ Auth::user()->name ?? '' }}"/>
                       </div>
                     </div>
                     <div class="col-md-12">
