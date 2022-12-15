@@ -27,7 +27,7 @@ class CheckOutController extends Controller
     public function addOder(Request $request){
         // Thêm đơn hàng 
         $data = $request->all();
-        $data['status'] = Constant::order_status_ReceiveOders;
+        $data['status'] = Constant::order_status_ReceiveOrders;
 
         $order = $this->orderService->create($data);
         // Thêm chi tiết đơn hàng
@@ -44,13 +44,13 @@ class CheckOutController extends Controller
             ;
         }
         //Gửi email
-        $total = Cart::total();
-        $subtotal = Cart::subtotal();
-        $this->sendEmail($order, $total, $subtotal);
+        // $total = Cart::total();
+        // $subtotal = Cart::subtotal();
+        // $this->sendEmail($order, $total, $subtotal);
         // Xóa giỏ hàng 
         Cart::destroy();
         // Trả về kết quả
-        return redirect('.checkout/result')->with('notification', 'Success');
+        return redirect('checkout/result')->with('notification', 'Success');
     }
     public function result() {
         $notification = session('notification');

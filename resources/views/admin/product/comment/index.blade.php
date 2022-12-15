@@ -60,33 +60,31 @@
                                     <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">ID</th>
-                                                <th>Name</th>
+                                                
+                                                <th class="text-center">Name</th>
+                                                <th>Message</th>
+                                                <th class="text-center">Rating</th>
                                                 <th class="text-center">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($brands as $brand)
+                                            @foreach ($product_comments as $comment)
 
                                             <tr>
-                                                <td class="text-center text-muted">#{{$brand->id}}</td>
+                                                <td class="text-center text-muted">{{$comment->name}}</td>
                                                 <td>
                                                     <div class="widget-content p-0">
                                                         <div class="widget-content-wrapper">
                                                             <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">{{$brand->name}}</div>
+                                                                <div class="widget-heading">{{$comment->messages}}</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
+                                                <td class="text-center text-muted">{{$comment->rating}}*</td>
                                                 <td class="text-center">
-                                                    <a href="\admin/brand/{{$brand->id}}/edit" data-toggle="tooltip" title="Edit"
-                                                        data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
-                                                        <span class="btn-icon-wrapper opacity-8">
-                                                            <i class="fa fa-edit fa-w-20"></i>
-                                                        </span>
-                                                    </a>
-                                                    <form class="d-inline" action="\admin/brand/{{$brand->id}}" method="post">
+                                                   
+                                                    <form class="d-inline" action="\admin/product/{{$product->id}}/comment/{{$comment->id}}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
@@ -108,7 +106,7 @@
                                 </div>
 
                                 <div class="d-block card-footer">
-                                    {{$brands->links()}}
+                                    
                                 </div>
 
                             </div>

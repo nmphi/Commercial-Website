@@ -67,7 +67,8 @@
           <div class="breadcrumb-content">
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li class="active">Checkout</li>
+              <li><a href="/account/my-order">My Orders</a></li>
+              <li class="active">Order Details</li>
             </ul>
           </div>
         </div>
@@ -78,7 +79,7 @@
         <div class="container">
           
           <div class="row">
-            @if(Cart::count() > 0)
+            
             <div class="col-lg-6 col-12">
               <form action="" method="post">
                 @csrf
@@ -86,30 +87,30 @@
                   <h3>Billing Details</h3>
                   <div class="row">
 
-                    <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id ?? '' }}">
+                    <input disabled type="hidden" id="user_id" name="user_id" value="{{ $order->user_id }}">
                     
                     <div class="col-md-12">
                       <div class="checkout-form-list">
                         <label>
                          Name
-                        <span class="required">*</span>
+                        <span class=""></span>
                         </label>
-                        <input placeholder="" type="text" name = "name" value="{{ Auth::user()->name ?? '' }}"/>
+                        <input disabled placeholder="" type="text" name = "name" value="{{ $order->name}}"/>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="checkout-form-list">
                         <label>Company Name</label>
-                        <input placeholder="" type="text" name="company_name" value="{{ Auth::user()->company_name ?? '' }}"/>
+                        <input disabled placeholder="" type="text" name="company_name" value="{{ $order->company_name}}"/>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="checkout-form-list">
                         <label>
                           Country
-                          <span class="required">*</span>
+                          <span class=""></span>
                         </label>
-                        <input placeholder="" type="text" name = "country" value="{{ Auth::user()->country ?? '' }}"/>
+                        <input disabled placeholder="" type="text" name = "country" value="{{ $order->country}}"/>
                       
                       </div>
                     </div>
@@ -117,45 +118,45 @@
                       <div class="checkout-form-list">
                         <label>
                           Address
-                          <span class="required">*</span>
+                          <span class=""></span>
                         </label>
-                        <input placeholder="Street address" type="text" name="street_address" value="{{ Auth::user()->street_address ?? '' }}"/>
+                        <input disabled placeholder="Street address" type="text" name="street_address" value="{{ $order->street_address}}"/>
                       </div>
                     </div>         
                     <div class="col-md-12">
                       <div class="checkout-form-list">
                         <label>
                           Town / City
-                          <span class="required">*</span>
+                          <span class=""></span>
                         </label>
-                        <input type="text" name="town_city"value="{{ Auth::user()->town_city ?? '' }}"/>
+                        <input disabled type="text" name="town_city"value="{{ $order->town_city}}"/>
                       </div>
                     </div>                
                     <div class="col-md-6">
                       <div class="checkout-form-list">
                         <label>
                           Postcode / Zip
-                          <span class="required">*</span>
+                          <span class=""></span>
                         </label>
-                        <input placeholder="" type="text" name= "postcode_zip" value="{{ Auth::user()->postcode_zip ?? '' }}"/>
+                        <input disabled placeholder="" type="text" name= "postcode_zip" value="{{ $order->postcode_zip}}"/>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="checkout-form-list">
                         <label>
                           Email Address
-                          <span class="required">*</span>
+                          <span class=""></span>
                         </label>
-                        <input placeholder="" type="email" name="email" value="{{ Auth::user()->email ?? '' }}"/>
+                        <input disabled placeholder="" type="email" name="email" value="{{ $order->email}}"/>
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="checkout-form-list">
                         <label>
                           Phone
-                          <span class="required">*</span>
+                          <span class=""></span>
                         </label>
-                        <input type="text" name="phone" value="{{ Auth::user()->phone ?? '' }}"/>
+                        <input disabled type="text" name="phone" value="{{ $order->phone}}"/>
                       </div>
                     </div>
                   </div>                  
@@ -175,27 +176,23 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($carts as $cart)
+                      @foreach ($order->order_detail as $order_detail)
                       <tr class="cart_item">
                         <td class="cart-product-name">
-                          {{$cart->name}}
-                          <strong class="product-quantity">× {{$cart->qty}}</strong>
+                          {{$order_detail->product->name}}
+                          <strong class="product-quantity">× {{$order_detail->qty}}</strong>
                         </td>
                         <td class="cart-product-total">
-                          <span class="amount">${{$cart->total}}</span>
+                          <span class="amount">${{$order_detail->total}}</span>
                         </td>
                       </tr>
                       @endforeach
                     </tbody>
                     <tfoot>
-                      <tr class="cart-subtotal">
-                        <th>Cart Subtotal</th>
-                        <td><span class="amount">$ {{$subtotal}}</span></td>
-                      </tr>
                       <tr class="order-total">
                         <th>Order Total</th>
                         <td>
-                          <strong><span class="amount">${{$total}}</span></strong>
+                          <strong><span class="amount">${{array_sum(array_column($order->order_detail->toArray(), 'total'))}}</span></strong>
                         </td>
                       </tr>
                     </tfoot>
@@ -206,14 +203,14 @@
 
                     
                     <div class="order-button-payment">
-                      <input value="Place order" type="submit" />
+                      <input disabled value="Order Completed" type="submit" />
                     </div>
                 
                   
                 </div>
               </div>
             </div>
-            @else
+            {{-- @else
             <div class="col-lg-3">
               Your cart is empty
               <div class="minicart-button">
@@ -225,7 +222,7 @@
                 </a>
                </div>
             </div>
-            @endif
+            @endif --}}
            </form>
           </div>
         </div>

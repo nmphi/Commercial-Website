@@ -45,7 +45,14 @@
                                         <label for="brand_id"
                                             class="col-md-3 text-md-right col-form-label">Product Images</label>
                                         <div class="col-md-9 col-xl-8">
-                                            <p><a href="./product-image.html">Manage images</a></p>
+                                            <p><a href="\admin/product/{{$product->id}}/image">Manage images</a></p>
+                                        </div>
+                                    </div>
+                                    <div class="position-relative row form-group">
+                                        <label for="brand_id"
+                                            class="col-md-3 text-md-right col-form-label">Product Comments</label>
+                                        <div class="col-md-9 col-xl-8">
+                                            <p><a href="\admin/product/{{$product->id}}/comment">Manage comments</a></p>
                                         </div>
                                     </div>
 

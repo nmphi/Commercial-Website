@@ -39,6 +39,9 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function(){
     Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
     Route::resource('category', \App\Http\Controllers\Admin\ProductCategoryController::class);
     Route::resource('brand', \App\Http\Controllers\Admin\BrandController::class);
+    Route::resource('order', \App\Http\Controllers\Admin\OrderController::class);
+    Route::resource('product/{product_id}/image', \App\Http\Controllers\Admin\ProductImageController::class);
+    Route::resource('product/{product_id}/comment', \App\Http\Controllers\Admin\ProductCommentController::class);
     Route::prefix('login')->group(function(){
         Route::get('', [App\Http\Controllers\Admin\HomeController::class, 'getLogin'])->withoutMiddleware('CheckAdminLogin');
         Route::post('', [App\Http\Controllers\Admin\HomeController::class, 'postLogin'])->withoutMiddleware('CheckAdminLogin');
@@ -49,6 +52,9 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function(){
 });
 
 // Client
+Route::prefix('')->group(function(){
+    Route::redirect('', 'shop');
+});
 Route::prefix('shop')->group(function(){
     Route::get('/product/{id}', [App\Http\Controllers\Front\ShopController::class, 'show']);
     Route::post('/product/{id}', [App\Http\Controllers\Front\ShopController::class, 'postComment']);
@@ -74,6 +80,12 @@ Route::prefix('account')->name('account.')->group(function(){
 
     Route::get('/register', [App\Http\Controllers\Front\AccountController::class, 'register']);
     Route::post('/register', [App\Http\Controllers\Front\AccountController::class, 'postRegister']);
+
+    Route::prefix('my-order')->group(function () {
+        Route::get('/', [App\Http\Controllers\Front\AccountController::class, 'myOrderIndex']);
+        Route::get('{id}', [App\Http\Controllers\Front\AccountController::class, 'myOrderShow']);
+    });
+    
 });
 
 
@@ -82,7 +94,9 @@ Route::prefix('checkout')->group(function(){
     Route::post('/', [App\Http\Controllers\Front\CheckOutController::class, 'addOder']);
     Route::get('/result', [App\Http\Controllers\Front\CheckOutController::class, 'result']);
     
+
     
 });
+
 
 

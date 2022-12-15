@@ -551,7 +551,7 @@
                             <a href="\account/login">My Account</a>
                           </li>
                           <li><a href="\checkout">Checkout</a></li>
-                          <li><a href="compare.html">Compare</a></li>
+                          <li><a href="\account/my-order">My Order</a></li>
                           <li><a href="wishlist.html">Wishlist</a></li>
                           <li>
                             <a href="\cart">Shopping Cart</a>

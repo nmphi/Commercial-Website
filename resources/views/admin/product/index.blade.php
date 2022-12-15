@@ -112,7 +112,9 @@
                                                             <i class="fa fa-edit fa-w-20"></i>
                                                         </span>
                                                     </a>
-                                                    <form class="d-inline" action="" method="post">
+                                                    <form class="d-inline" action="\admin/product/{{$product->id}}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
                                                         <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
                                                             type="submit" data-toggle="tooltip" title="Delete"
                                                             data-placement="bottom"

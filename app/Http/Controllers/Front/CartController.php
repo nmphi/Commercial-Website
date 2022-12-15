@@ -16,12 +16,19 @@ class CartController extends Controller
     }
     public function add($id){
         $product = $this->productService->find($id);
+        $price = 0;
+        if($product->discount or $product->discount == 0)
+        {
+            $price = $product->price;
+
+        }
+        else $price = $product->discount;
         Cart::add([
             'id' => $product->id,
             'name' => $product->name,
             'qty' => 1,
-            'price' => $product->price,
-            'weight'=>$product->weight,
+            'price' =>$price,
+            'weight'=>$product->weight ?? 0,
             'options' => [
                 'images' =>$product->product_image,
             ]

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
-  <!-- checkout31:27-->
+  <!-- shopping-cart31:32-->
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>
-      Checkout || limupa - Digital Products Store eCommerce Bootstrap 4 Template
+      Shop Left Sidebar || limupa - Digital Products Store eCommerce Bootstrap 4
+      Template
     </title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="/front/image/x-icon" href="/front/images/favicon.png" />
+     <!-- Favicon -->
+     <link rel="shortcut icon" type="/front/image/x-icon" href="/front/images/favicon.png" />
      <!-- Material Design Iconic Font-V2.2.0 -->
      <link rel="stylesheet" href="/front/css/material-design-iconic-font.min.css" />
      <!-- Font Awesome -->
@@ -45,6 +47,8 @@
      <link href="https://unpkg.com/tailwindcss@^1/dist/tailwind.min.css" rel="stylesheet">
      <!-- Modernizr js -->
      <script src="/front/js/vendor/modernizr-2.8.3.min.js"></script>
+     
+
   </head>
   <body>
     <!--[if lt IE 8]>
@@ -67,170 +71,117 @@
           <div class="breadcrumb-content">
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li class="active">Checkout</li>
+              <li class="active">My Orders</li>
             </ul>
           </div>
         </div>
       </div>
       <!-- Li's Breadcrumb Area End Here -->
-      <!--Checkout Area Strat-->
-      <div class="checkout-area pt-60 pb-30">
+      <!--Shopping Cart Area Strat-->
+      <div class="Shopping-cart-area pt-60 pb-60">
         <div class="container">
-          
           <div class="row">
-            @if(Cart::count() > 0)
-            <div class="col-lg-6 col-12">
-              <form action="" method="post">
-                @csrf
-                <div class="checkbox-form">
-                  <h3>Billing Details</h3>
-                  <div class="row">
-
-                    <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id ?? '' }}">
-                    
-                    <div class="col-md-12">
-                      <div class="checkout-form-list">
-                        <label>
-                         Name
-                        <span class="required">*</span>
-                        </label>
-                        <input placeholder="" type="text" name = "name" value="{{ Auth::user()->name ?? '' }}"/>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="checkout-form-list">
-                        <label>Company Name</label>
-                        <input placeholder="" type="text" name="company_name" value="{{ Auth::user()->company_name ?? '' }}"/>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="checkout-form-list">
-                        <label>
-                          Country
-                          <span class="required">*</span>
-                        </label>
-                        <input placeholder="" type="text" name = "country" value="{{ Auth::user()->country ?? '' }}"/>
-                      
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="checkout-form-list">
-                        <label>
-                          Address
-                          <span class="required">*</span>
-                        </label>
-                        <input placeholder="Street address" type="text" name="street_address" value="{{ Auth::user()->street_address ?? '' }}"/>
-                      </div>
-                    </div>         
-                    <div class="col-md-12">
-                      <div class="checkout-form-list">
-                        <label>
-                          Town / City
-                          <span class="required">*</span>
-                        </label>
-                        <input type="text" name="town_city"value="{{ Auth::user()->town_city ?? '' }}"/>
-                      </div>
-                    </div>                
-                    <div class="col-md-6">
-                      <div class="checkout-form-list">
-                        <label>
-                          Postcode / Zip
-                          <span class="required">*</span>
-                        </label>
-                        <input placeholder="" type="text" name= "postcode_zip" value="{{ Auth::user()->postcode_zip ?? '' }}"/>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="checkout-form-list">
-                        <label>
-                          Email Address
-                          <span class="required">*</span>
-                        </label>
-                        <input placeholder="" type="email" name="email" value="{{ Auth::user()->email ?? '' }}"/>
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="checkout-form-list">
-                        <label>
-                          Phone
-                          <span class="required">*</span>
-                        </label>
-                        <input type="text" name="phone" value="{{ Auth::user()->phone ?? '' }}"/>
-                      </div>
-                    </div>
-                  </div>                  
-                </div>
-            </div>
-           
-
-            <div class="col-lg-6 col-12">
-              <div class="your-order">
-                <h3>Your order</h3>
-                <div class="your-order-table table-responsive">
+            <div class="col-12">
+              <form action="#">
+                <div class="table-content table-responsive">
                   <table class="table">
                     <thead>
                       <tr>
+                        <th class="li-product-thumbnail">images</th>
+                        <th class="cart-product-name">Order ID</th>
                         <th class="cart-product-name">Product</th>
-                        <th class="cart-product-total">Total</th>
+                        <th class="li-product-price">Total</th>
+                        <th class="li-product-subtotal">Details</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($carts as $cart)
-                      <tr class="cart_item">
-                        <td class="cart-product-name">
-                          {{$cart->name}}
-                          <strong class="product-quantity">× {{$cart->qty}}</strong>
+                      @foreach ($orders as $order)
+                      <tr>
+                        <td class="li-product-thumbnail">
+                          <a href="#">
+                            <img 
+                              src="/front/images/product/{{$order->order_detail[0]->product->product_image[0]->path ?? ''}}"
+                              alt="Li's Product Image"
+                              style="height:150px"
+                            />
+                          </a>
                         </td>
-                        <td class="cart-product-total">
-                          <span class="amount">${{$cart->total}}</span>
+                        <td class="product-subtotal">
+                          <span class="amount">{{$order->id}}</span>
+                        </td>
+                        <td class="li-product-name">
+                          <a href="">
+                            {{$order->order_detail[0]->product->name}}
+                            @if(count($order->order_detail) > 1)
+                              (and {{count($order->order_detail)}} other products)
+                            @endif
+                          </a>
+                        </td>
+                        <td class="product-subtotal">
+                          <span class="amount">${{array_sum(array_column($order->order_detail->toArray(), 'total'))}}</span>
+                        </td>
+                        <td class="li-product-price">
+                          <a class="amount" href="/account/my-order/{{$order->id}}">Details</a>
                         </td>
                       </tr>
                       @endforeach
                     </tbody>
-                    <tfoot>
-                      <tr class="cart-subtotal">
-                        <th>Cart Subtotal</th>
-                        <td><span class="amount">$ {{$subtotal}}</span></td>
-                      </tr>
-                      <tr class="order-total">
-                        <th>Order Total</th>
-                        <td>
-                          <strong><span class="amount">${{$total}}</span></strong>
-                        </td>
-                      </tr>
-                    </tfoot>
                   </table>
                 </div>
-                
-                 
-
-                    
-                    <div class="order-button-payment">
-                      <input value="Place order" type="submit" />
+                {{-- <div class="row">
+                  <div class="col-12">
+                    <div class="coupon-all">
+                      <div class="coupon">
+                        <input
+                          id="coupon_code"
+                          class="input-text"
+                          name="coupon_code"
+                          value=""
+                          placeholder="Coupon code"
+                          type="text"
+                        />
+                        <input
+                          class="button"
+                          name="apply_coupon"
+                          value="Apply coupon"
+                          type="submit"
+                        />
+                      </div>
+                      <div class="coupon2">
+                        <input
+                          class="button"
+                          name="update_cart"
+                          value="Update cart"
+                          type="submit"
+                        />
+                      </div>
                     </div>
-                
-                  
+                  </div>
+                </div> --}}
+                {{-- <div class="row"> --}}
+                  {{-- <div class="col-md-5 ml-auto">
+                    <div class="cart-page-total">
+                      <h2>Cart totals</h2>
+                      <ul>
+                        <li>
+                          Subtotal
+                          <span>${{$subtotal}}</span>
+                        </li>
+                        <li>
+                          Total
+                          <span>${{$subtotal}}</span>
+                        </li>
+                      </ul>
+                      <a href="\checkout">Proceed to checkout</a>
+                    </div>
+                  </div> --}}
                 </div>
-              </div>
+              </form>
             </div>
-            @else
-            <div class="col-lg-3">
-              Your cart is empty
-              <div class="minicart-button">
-                <a
-                 href="\shop"
-                 class="li-button li-button-dark li-button-fullwidth li-button-sm"
-                >
-                 <span>Continue Shopping</span>
-                </a>
-               </div>
-            </div>
-            @endif
-           </form>
           </div>
         </div>
       </div>
-      <!--Checkout Area End-->
+      <!--Shopping Cart Area End-->
       <!-- Begin Footer Area -->
       <div class="footer">
         <!-- Begin Footer Static Top Area -->
@@ -575,5 +526,5 @@
     <script src="/front/js/main.js"></script>
   </body>
 
-  <!-- checkout31:27-->
+  <!-- shopping-cart31:32-->
 </html>
