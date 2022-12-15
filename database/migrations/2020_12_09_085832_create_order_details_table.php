@@ -24,8 +24,6 @@ class CreateOrderDetailsTable extends Migration
             $table->double('amount');
             $table->double('total');
 
-            $table->integer('status')->nullable();
-
             $table->timestamps();
         });
     }
