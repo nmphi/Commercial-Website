@@ -39,7 +39,7 @@ class AccountController extends Controller
         $remember = $request->remember;
 
         if(Auth::attempt($credentials, $remember)) {
-           return redirect('shop');
+           return redirect()->intended('shop');
            
         } else {
             return back()

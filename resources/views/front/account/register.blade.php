@@ -90,7 +90,7 @@
                 <div class="login-form">
                   <h4 class="login-title">Register</h4>
                   <div class="row">
-                    <div class="col-md-6 col-12 mb-20">
+                    <div class="col-md-12 mb-20">
                       <label>First Name</label>
                       <input
                         class="mb-0"
@@ -98,10 +98,6 @@
                         name="name"
                         placeholder="First Name"
                       />
-                    </div>
-                    <div class="col-md-6 col-12 mb-20">
-                      <label>Last Name</label>
-                      <input name="last_name" class="mb-0" type="text" placeholder="Last Name" />
                     </div>
                     <div class="col-md-12 mb-20">
                       <label>Email Address*</label>
