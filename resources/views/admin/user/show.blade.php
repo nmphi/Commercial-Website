@@ -25,7 +25,7 @@
 
                     <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
                         <li class="nav-item">
-                            <a href="./user-edit.html" class="nav-link">
+                            <a href="\admin/user/{{$user->id}}/edit" class="nav-link">
                                 <span class="btn-icon-wrapper pr-2 opacity-8">
                                     <i class="fa fa-edit fa-w-20"></i>
                                 </span>
@@ -34,7 +34,9 @@
                         </li>
 
                         <li class="nav-item delete">
-                            <form action="" method="post">
+                            <form action="\admin/user/{{$user->id}}" method="post">
+                                @csrf
+                                @method('DELETE')
                                 <button class="nav-link btn" type="submit"
                                     onclick="return confirm('Do you really want to delete this item?')">
                                     <span class="btn-icon-wrapper pr-2 opacity-8">
@@ -50,16 +52,7 @@
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">
                                 <div class="card-body display_data">
-                                    <div class="position-relative row form-group">
-                                        <label for="image" class="col-md-3 text-md-right col-form-label">Avatar</label>
-                                        <div class="col-md-9 col-xl-8">
-                                            <p>
-                                                <img style="height: 200px;" class="rounded-circle" data-toggle="tooltip"
-                                                    title="Avatar" data-placement="bottom"
-                                                    src="assets/images/_default-user.png" alt="Avatar">
-                                            </p>
-                                        </div>
-                                    </div>
+                                   
 
                                     <div class="position-relative row form-group">
                                         <label for="name" class="col-md-3 text-md-right col-form-label">

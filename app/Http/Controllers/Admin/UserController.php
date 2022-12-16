@@ -35,6 +35,7 @@ class UserController extends Controller
     public function create()
     {
         //
+        return view('admin.user.create'); 
     }
 
     /**
@@ -46,6 +47,14 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        if ($request->get('password') != $request->get('password_confirmation'))
+        {
+            return back()->with('notification', 'ERROR: Confirm password does not match');
+        }
+        $data = $request->all();
+        $data['password'] = bcrypt($request->get('password'));
+        $user = $this->userService->create($data);
+        return redirect('admin/user/'.$user->id);
     }
 
     /**
@@ -69,6 +78,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -80,7 +90,21 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        //Xử lí password
+        $data = $request->all();
+        if ($request->get('password') != null) {
+            if ($request->get('password') != $request->get('password_confirmation')){
+                return back()-> with('notification', 'ERROR: Confirm password does not match');
+            }
+            $data['password'] = bcrypt($request->get('password'));
+        } else {
+            unset($data['password']);
+        }
+        //Cập nhật thông tin
+        $this->userService->update($data, $user->id);
+        return redirect('admin/user/'.$user->id);
+
+        
     }
 
     /**
@@ -92,5 +116,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+        $this->userService->delete($user->id);
+        return redirect('admin/user');
     }
 }
