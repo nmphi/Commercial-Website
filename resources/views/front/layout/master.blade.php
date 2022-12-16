@@ -30,7 +30,7 @@
                       </div>
                       <div class="setting ht-setting">
                         <ul class="ht-setting-list">
-                          <li><a href="\checkout">My Account</a></li>
+                          <li><a href="\account/my-order">My Order</a></li>
                           <li><a href="\checkout">Checkout</a></li>
                           <li><a href="/account/logout">Sign Out</a></li>
                         </ul>
@@ -41,7 +41,6 @@
                       <div class="ht-setting-trigger"><span>Setting</span></div>
                       <div class="setting ht-setting">
                         <ul class="ht-setting-list">
-                          <li><a href="\checkout">My Account</a></li>
                           <li><a href="\checkout">Checkout</a></li>
                           <li><a href="\account/login">Sign In</a></li>
                         </ul>
