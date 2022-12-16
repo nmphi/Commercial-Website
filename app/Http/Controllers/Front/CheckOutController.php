@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Front;
+use App\Services\Product\ProductServiceInterface;
 use App\Services\Order\OrderServiceInterface;
 use App\Services\OrderDetail\OrderDetailServiceInterface;
 use App\Http\Controllers\Controller;
@@ -13,9 +14,14 @@ class CheckOutController extends Controller
 {
     private $orderService;
     private $orderDetailService;
-    public function __construct(OrderServiceInterface $orderService, OrderDetailServiceInterface $orderDetailService){
+    private $productService;
+    public function __construct(
+        OrderServiceInterface $orderService,
+        OrderDetailServiceInterface $orderDetailService,
+        ProductServiceInterface $productService){
         $this->orderService = $orderService;
         $this->orderDetailService = $orderDetailService;
+        $this->productService = $productService;
 
     }
     public function index(){
@@ -40,6 +46,11 @@ class CheckOutController extends Controller
                 'amount'=>$cart->price,
                 'total' =>$cart->qty*$cart->price,
             ];
+            $product = $this->productService->find($cart->id);
+            $newQuantity = $product->qty - $cart->qty;
+            $this->productService->update([
+                'qty' => $newQuantity,
+            ], $cart->id);
             $this->orderDetailService->create($data);
             ;
         }
