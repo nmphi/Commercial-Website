@@ -24,6 +24,32 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="widget-chart p-0">
+                                            <div class="widget-chart-content">
+                                                <div class="widget-numbers text-warning fsize-3">{{$orders_count}}</div>
+                                                <div class="widget-subheading pt-1">ORDERS </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="widget-chart p-0">
+                                            <div class="widget-chart-content">
+                                                <div class="widget-numbers text-danger fsize-3">{{$products_count}}</div>
+                                                <div class="widget-subheading pt-1">PURCHASE PRODUCTS </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="widget-chart p-0">
+                                            <div class="widget-chart-content">
+                                                <div class="widget-numbers text-success fsize-3">{{$total}}</div>
+                                                <div class="widget-subheading pt-1">THE SALES AMOUNT </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="card-header">
 

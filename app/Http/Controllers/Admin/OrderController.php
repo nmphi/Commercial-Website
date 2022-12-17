@@ -20,8 +20,21 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         //
+        $orders_all = $this->orderService->all();
+        $orders_count = count($orders_all);
+        $products_count = 0;
+        $total = 0;
+        foreach($orders_all as $order){
+            foreach($order->order_detail as $detail){
+                $qty = $detail->qty;
+                $products_count += $qty;
+                $total += $detail->total;
+
+            }
+            
+        }
         $orders = $this->orderService->searchAndPaginate('name', $request->get('search'));
-        return view('admin.order.index', compact('orders'));
+        return view('admin.order.index', compact('orders', 'orders_count', 'products_count', 'total'));
     }
 
     /**
