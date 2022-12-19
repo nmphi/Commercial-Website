@@ -31,13 +31,21 @@ class CheckOutController extends Controller
         return view('front.checkout.index', compact('carts', 'total', 'subtotal'));
     }
     public function addOder(Request $request){
+        
+        
+        $carts = Cart::content();
+        foreach ($carts as $cart){
+            $product = $this->productService->find($cart->id);
+        // Kiểm tra số lượng
+        if ($product->qty < $cart->qty) {
+            return redirect('checkout/result')->with('notification', 'FAIL TO PURCHASE '.$product->name.' only have '.$product->qty.' left');
+
+        }}
         // Thêm đơn hàng 
         $data = $request->all();
         $data['status'] = Constant::order_status_ReceiveOrders;
-
         $order = $this->orderService->create($data);
         // Thêm chi tiết đơn hàng
-        $carts = Cart::content();
         foreach ($carts as $cart){
             $data = [
                 'order_id' => $order->id,
@@ -46,6 +54,7 @@ class CheckOutController extends Controller
                 'amount'=>$cart->price,
                 'total' =>$cart->qty*$cart->price,
             ];
+            
             $product = $this->productService->find($cart->id);
             $newQuantity = $product->qty - $cart->qty;
             $this->productService->update([
@@ -54,10 +63,6 @@ class CheckOutController extends Controller
             $this->orderDetailService->create($data);
             ;
         }
-        //Gửi email
-        // $total = Cart::total();
-        // $subtotal = Cart::subtotal();
-        // $this->sendEmail($order, $total, $subtotal);
         // Xóa giỏ hàng 
         Cart::destroy();
         // Trả về kết quả

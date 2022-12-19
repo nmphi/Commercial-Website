@@ -203,7 +203,7 @@
 
                     
                     <div class="order-button-payment">
-                      <input disabled value="Order Completed" type="submit" />
+                      <input disabled value="{{\App\Utilities\Constant::$order_status[$order->status]}}" type="submit" />
                     </div>
                 
                   

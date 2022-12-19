@@ -91,8 +91,9 @@
                   <h4 class="login-title">Register</h4>
                   <div class="row">
                     <div class="col-md-12 mb-20">
-                      <label>First Name</label>
+                      <label>Name</label>
                       <input
+                        required
                         class="mb-0"
                         type="text"
                         name="name"
@@ -102,6 +103,7 @@
                     <div class="col-md-12 mb-20">
                       <label>Email Address*</label>
                       <input
+                        required
                         class="mb-0"
                         type="email"
                         name="email"
@@ -111,6 +113,7 @@
                     <div class="col-md-6 mb-20">
                       <label>Password</label>
                       <input
+                        required
                         class="mb-0"
                         type="password"
                         name="password"

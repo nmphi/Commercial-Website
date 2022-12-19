@@ -5,12 +5,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>
-      Checkout || limupa - Digital Products Store eCommerce Bootstrap 4 Template
+      Shop Left Sidebar || limupa - Digital Products Store eCommerce Bootstrap 4
+      Template
     </title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="/front/image/x-icon" href="/front/images/favicon.png" />
+     <!-- Favicon -->
+     <link rel="shortcut icon" type="/front/image/x-icon" href="/front/images/favicon.png" />
      <!-- Material Design Iconic Font-V2.2.0 -->
      <link rel="stylesheet" href="/front/css/material-design-iconic-font.min.css" />
      <!-- Font Awesome -->
@@ -45,6 +47,8 @@
      <link href="https://unpkg.com/tailwindcss@^1/dist/tailwind.min.css" rel="stylesheet">
      <!-- Modernizr js -->
      <script src="/front/js/vendor/modernizr-2.8.3.min.js"></script>
+     
+
   </head>
   <body>
     <!--[if lt IE 8]>
@@ -94,7 +98,7 @@
                          Name
                         <span class="required">*</span>
                         </label>
-                        <input placeholder="" type="text" name = "name" value="{{ Auth::user()->name ?? '' }}"/>
+                        <input required placeholder="" type="text" name = "name" value="{{ Auth::user()->name ?? '' }}"/>
                       </div>
                     </div>
                     <div class="col-md-12">
@@ -109,7 +113,7 @@
                           Country
                           <span class="required">*</span>
                         </label>
-                        <input placeholder="" type="text" name = "country" value="{{ Auth::user()->country ?? '' }}"/>
+                        <input required placeholder="" type="text" name = "country" value="{{ Auth::user()->country ?? '' }}"/>
                       
                       </div>
                     </div>
@@ -119,7 +123,7 @@
                           Address
                           <span class="required">*</span>
                         </label>
-                        <input placeholder="Street address" type="text" name="street_address" value="{{ Auth::user()->street_address ?? '' }}"/>
+                        <input required placeholder="Street address" type="text" name="street_address" value="{{ Auth::user()->street_address ?? '' }}"/>
                       </div>
                     </div>         
                     <div class="col-md-12">
@@ -128,7 +132,7 @@
                           Town / City
                           <span class="required">*</span>
                         </label>
-                        <input type="text" name="town_city"value="{{ Auth::user()->town_city ?? '' }}"/>
+                        <input required type="text" name="town_city"value="{{ Auth::user()->town_city ?? '' }}"/>
                       </div>
                     </div>                
                     <div class="col-md-6">
@@ -137,7 +141,7 @@
                           Postcode / Zip
                           <span class="required">*</span>
                         </label>
-                        <input placeholder="" type="text" name= "postcode_zip" value="{{ Auth::user()->postcode_zip ?? '' }}"/>
+                        <input required placeholder="" type="text" name= "postcode_zip" value="{{ Auth::user()->postcode_zip ?? '' }}"/>
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -146,7 +150,7 @@
                           Email Address
                           <span class="required">*</span>
                         </label>
-                        <input placeholder="" type="email" name="email" value="{{ Auth::user()->email ?? '' }}"/>
+                        <input required placeholder="" type="email" name="email" value="{{ Auth::user()->email ?? '' }}"/>
                       </div>
                     </div>
                     <div class="col-md-12">
@@ -155,7 +159,7 @@
                           Phone
                           <span class="required">*</span>
                         </label>
-                        <input type="text" name="phone" value="{{ Auth::user()->phone ?? '' }}"/>
+                        <input required type="text" name="phone" value="{{ Auth::user()->phone ?? '' }}"/>
                       </div>
                     </div>
                   </div>                  
@@ -244,7 +248,7 @@
                   <div class="li-shipping-inner-box">
                     <div class="shipping-icon">
                       <img
-                        src="images/shipping-icon/1.png"
+                        src="/front/images/shipping-icon/1.png"
                         alt="Shipping Icon"
                       />
                     </div>
@@ -260,7 +264,7 @@
                   <div class="li-shipping-inner-box">
                     <div class="shipping-icon">
                       <img
-                        src="images/shipping-icon/2.png"
+                        src="/front/images/shipping-icon/2.png"
                         alt="Shipping Icon"
                       />
                     </div>
@@ -279,7 +283,7 @@
                   <div class="li-shipping-inner-box">
                     <div class="shipping-icon">
                       <img
-                        src="images/shipping-icon/3.png"
+                        src="/front/images/shipping-icon/3.png"
                         alt="Shipping Icon"
                       />
                     </div>
@@ -298,7 +302,7 @@
                   <div class="li-shipping-inner-box">
                     <div class="shipping-icon">
                       <img
-                        src="images/shipping-icon/4.png"
+                        src="/front/images/shipping-icon/4.png"
                         alt="Shipping Icon"
                       />
                     </div>
@@ -323,7 +327,7 @@
                 <!-- Begin Footer Logo Area -->
                 <div class="col-lg-4 col-md-6">
                   <div class="footer-logo">
-                    <img src="images/menu/logo/1.jpg" alt="Footer Logo" />
+                    <img src="/front/images/menu/logo/1.jpg" alt="Footer Logo" />
                     <p class="info">
                       We are a team of designers and developers that create high
                       quality HTML Template & Woocommerce, Shopify Theme.
@@ -509,7 +513,7 @@
                 <!-- Begin Footer Payment Area -->
                 <div class="copyright text-center">
                   <a href="#">
-                    <img src="images/payment/1.png" alt="" />
+                    <img src="/front/images/payment/1.png" alt="" />
                   </a>
                 </div>
                 <!-- Footer Payment Area End Here -->
