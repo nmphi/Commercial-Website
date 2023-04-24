@@ -195,7 +195,7 @@
                   <div class="li-shipping-inner-box">
                     <div class="shipping-icon">
                       <img
-                        src="images/shipping-icon/1.png"
+                        src="/front/images/shipping-icon/1.png"
                         alt="Shipping Icon"
                       />
                     </div>
@@ -211,7 +211,7 @@
                   <div class="li-shipping-inner-box">
                     <div class="shipping-icon">
                       <img
-                        src="images/shipping-icon/2.png"
+                        src="/front/images/shipping-icon/2.png"
                         alt="Shipping Icon"
                       />
                     </div>
@@ -230,7 +230,7 @@
                   <div class="li-shipping-inner-box">
                     <div class="shipping-icon">
                       <img
-                        src="images/shipping-icon/3.png"
+                        src="/front/images/shipping-icon/3.png"
                         alt="Shipping Icon"
                       />
                     </div>
@@ -249,7 +249,7 @@
                   <div class="li-shipping-inner-box">
                     <div class="shipping-icon">
                       <img
-                        src="images/shipping-icon/4.png"
+                        src="/front/images/shipping-icon/4.png"
                         alt="Shipping Icon"
                       />
                     </div>
@@ -274,7 +274,7 @@
                 <!-- Begin Footer Logo Area -->
                 <div class="col-lg-4 col-md-6">
                   <div class="footer-logo">
-                    <img src="images/menu/logo/1.jpg" alt="Footer Logo" />
+                    <img src="/front/images/menu/logo/1.jpg" alt="Footer Logo" />
                     <p class="info">
                       We are a team of designers and developers that create high
                       quality HTML Template & Woocommerce, Shopify Theme.
@@ -460,7 +460,7 @@
                 <!-- Begin Footer Payment Area -->
                 <div class="copyright text-center">
                   <a href="#">
-                    <img src="images/payment/1.png" alt="" />
+                    <img src="/front/images/payment/1.png" alt="" />
                   </a>
                 </div>
                 <!-- Footer Payment Area End Here -->

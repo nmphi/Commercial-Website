@@ -16,7 +16,11 @@ class ShopController extends Controller
     private $productCommentService;
     private $productCategoryService;
     private $brandService;
-    public function __construct(ProductServiceInterface $productService, ProductCommentServiceInterface $productCommentService, ProductCategoryServiceInterface $productCategoryService, BrandServiceInterface $brandService){
+    public function __construct(
+    ProductServiceInterface $productService,
+    ProductCommentServiceInterface $productCommentService,
+    ProductCategoryServiceInterface $productCategoryService,
+    BrandServiceInterface $brandService){
         $this->productService = $productService;
         $this->productCommentService = $productCommentService;
         $this->productCategoryService = $productCategoryService;

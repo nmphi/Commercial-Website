@@ -62,6 +62,7 @@ Route::prefix('shop')->group(function(){
     
 });
 Route::view('about','front.about.index');
+Route::view('contact','front.contact.index');
 
 Route::prefix('cart')->group(function(){
     Route::get('add/{id}', [App\Http\Controllers\Front\CartController::class, 'add']);

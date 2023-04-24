@@ -72,15 +72,4 @@ class CheckOutController extends Controller
         $notification = session('notification');
         return view('front.checkout.result', compact('notification'));
     }
-    public function sendEmail($order, $total, $subtotal) {
-        $email_to = $order->email;
-
-        Mail::send('front.checkout.email',
-            compact('order', 'total', 'subtotal'),
-            function ($message) use ($email_to) {
-                $message->from('itsukashidou1199@gmail.com', 'eShop');
-                $message->to($email_to, $email_to);
-                $message->subject('Order Notification');
-        });
-    }
 }

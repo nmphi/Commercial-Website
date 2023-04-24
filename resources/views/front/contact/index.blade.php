@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
-  <!-- login-register31:27-->
+  <!-- contact32:04-->
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>
-      Login Register || limupa - Digital Products Store eCommerce Bootstrap 4
+      Contact || limupa - Digital Products Store eCommerce Bootstrap 4
       Template
     </title>
     <meta name="description" content="" />
@@ -65,81 +65,21 @@
         <div class="container">
           <div class="breadcrumb-content">
             <ul>
-              <li><a href="index.html">Home</a></li>
-              <li class="active">Login Register</li>
+              <li><a href="\shop">Home</a></li>
+              <li class="active">Contact</li>
             </ul>
           </div>
         </div>
       </div>
       <!-- Li's Breadcrumb Area End Here -->
-      <!-- Begin Login Content Area -->
-      <div class="page-section mb-60">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
-
-              @if (session('notification'))
-                <div class="alert alert-success" role="alert">
-                  {{session('notification')}}
-                </div>
-              @endif
-
-
-              <form action="#" method="post">
-                @csrf
-                <div class="login-form">
-                  <h4 class="login-title">Register</h4>
-                  <div class="row">
-                    <div class="col-md-12 mb-20">
-                      <label>Name</label>
-                      <input
-                        required
-                        class="mb-0"
-                        type="text"
-                        name="name"
-                        placeholder="First Name"
-                      />
-                    </div>
-                    <div class="col-md-12 mb-20">
-                      <label>Email Address*</label>
-                      <input
-                        required
-                        class="mb-0"
-                        type="email"
-                        name="email"
-                        placeholder="Email Address"
-                      />
-                    </div>
-                    <div class="col-md-6 mb-20">
-                      <label>Password</label>
-                      <input
-                        required
-                        class="mb-0"
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                      />
-                    </div>
-                    <div class="col-md-6 mb-20">
-                      <label>Confirm Password</label>
-                      <input
-                        class="mb-0"
-                        type="password"
-                        name="password_confirmation"
-                        placeholder="Confirm Password"
-                      />
-                    </div>
-                    <div class="col-12">
-                      <button class="login-button mt-0">Register</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div> 
-          </div>
+      <!-- Begin Contact Main Page Area -->
+      <div class="contact-main-page mt-60 mb-40 mb-md-40 mb-sm-40 mb-xs-40">
+        <div class="container mb-60">
+          <div id="google-map"></div>
         </div>
+        
       </div>
-      <!-- Login Content Area End Here -->
+      <!-- Contact Main Page Area End Here -->
       <!-- Begin Footer Area -->
       <div class="footer">
         <!-- Begin Footer Static Top Area -->
@@ -440,49 +380,260 @@
       <!-- Footer Area End Here -->
     </div>
     <!-- Body Wrapper End Here -->
-    <!-- jQuery-V1.12.4 -->
-     <script src="/front/js/vendor/jquery-1.12.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="/front/js/vendor/popper.min.js"></script>
-    <!-- Bootstrap V4.1.3 Fremwork js -->
-    <script src="/front/js/bootstrap.min.js"></script>
-    <!-- Ajax Mail js -->
-    <script src="/front/js/ajax-mail.js"></script>
-    <!-- Meanmenu js -->
-    <script src="/front/js/jquery.meanmenu.min.js"></script>
-    <!-- Wow.min js -->
-    <script src="/front/js/wow.min.js"></script>
-    <!-- Slick Carousel js -->
-    <script src="/front/js/slick.min.js"></script>
-    <!-- Owl Carousel-2 js -->
-    <script src="/front/js/owl.carousel.min.js"></script>
-    <!-- Magnific popup js -->
-    <script src="/front/js/jquery.magnific-popup.min.js"></script>
-    <!-- Isotope js -->
-    <script src="/front/js/isotope.pkgd.min.js"></script>
-    <!-- Imagesloaded js -->
-    <script src="/front/js/imagesloaded.pkgd.min.js"></script>
-    <!-- Mixitup js -->
-    <script src="/front/js/jquery.mixitup.min.js"></script>
-    <!-- Countdown -->
-    <script src="/front/js/jquery.countdown.min.js"></script>
-    <!-- Counterup -->
-    <script src="/front/js/jquery.counterup.min.js"></script>
-    <!-- Waypoints -->
-    <script src="/front/js/waypoints.min.js"></script>
-    <!-- Barrating -->
-    <script src="/front/js/jquery.barrating.min.js"></script>
-    <!-- Jquery-ui -->
-    <script src="/front/js/jquery-ui.min.js"></script>
-    <!-- Venobox -->
-    <script src="/front/js/venobox.min.js"></script>
-    <!-- Nice Select js -->
-    <script src="/front/js/jquery.nice-select.min.js"></script>
-    <!-- ScrollUp js -->
-    <script src="/front/js/scrollUp.min.js"></script>
-    <!-- Main/Activator js -->
-    <script src="/front/js/main.js"></script>
+   <!-- jQuery-V1.12.4 -->
+   <script src="/front/js/vendor/jquery-1.12.4.min.js"></script>
+   <!-- Popper js -->
+   <script src="/front/js/vendor/popper.min.js"></script>
+   <!-- Bootstrap V4.1.3 Fremwork js -->
+   <script src="/front/js/bootstrap.min.js"></script>
+   <!-- Ajax Mail js -->
+   <script src="/front/js/ajax-mail.js"></script>
+   <!-- Meanmenu js -->
+   <script src="/front/js/jquery.meanmenu.min.js"></script>
+   <!-- Wow.min js -->
+   <script src="/front/js/wow.min.js"></script>
+   <!-- Slick Carousel js -->
+   <script src="/front/js/slick.min.js"></script>
+   <!-- Owl Carousel-2 js -->
+   <script src="/front/js/owl.carousel.min.js"></script>
+   <!-- Magnific popup js -->
+   <script src="/front/js/jquery.magnific-popup.min.js"></script>
+   <!-- Isotope js -->
+   <script src="/front/js/isotope.pkgd.min.js"></script>
+   <!-- Imagesloaded js -->
+   <script src="/front/js/imagesloaded.pkgd.min.js"></script>
+   <!-- Mixitup js -->
+   <script src="/front/js/jquery.mixitup.min.js"></script>
+   <!-- Countdown -->
+   <script src="/front/js/jquery.countdown.min.js"></script>
+   <!-- Counterup -->
+   <script src="/front/js/jquery.counterup.min.js"></script>
+   <!-- Waypoints -->
+   <script src="/front/js/waypoints.min.js"></script>
+   <!-- Barrating -->
+   <script src="/front/js/jquery.barrating.min.js"></script>
+   <!-- Jquery-ui -->
+   <script src="/front/js/jquery-ui.min.js"></script>
+   <!-- Venobox -->
+   <script src="/front/js/venobox.min.js"></script>
+   <!-- Nice Select js -->
+   <script src="/front/js/jquery.nice-select.min.js"></script>
+   <!-- ScrollUp js -->
+   <script src="/front/js/scrollUp.min.js"></script>
+   <!-- Main/Activator js -->
+   <script src="/front/js/main.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry&amp;v=3.22&amp;key=AIzaSyChs2QWiAhnzz0a4OEhzqCXwx_qA9ST_lE"></script>
+
+    <script>
+      // When the window has finished loading create our google map below
+      google.maps.event.addDomListener(window, 'load', init)
+      function init() {
+        // Basic options for a simple Google Map
+        // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+        var mapOptions = {
+          // How zoomed in you want the map to start at (always required)
+          zoom: 12,
+          scrollwheel: false,
+          // The latitude and longitude to center the map (always required)
+          center: new google.maps.LatLng(40.74061, -73.935242), // New York
+          // How you would like to style the map.
+          // This is where you would paste any style found on
+          styles: [
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  color: '#e9e9e9',
+                },
+                {
+                  lightness: 17,
+                },
+              ],
+            },
+            {
+              featureType: 'landscape',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  color: '#f5f5f5',
+                },
+                {
+                  lightness: 20,
+                },
+              ],
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.fill',
+              stylers: [
+                {
+                  color: '#ffffff',
+                },
+                {
+                  lightness: 17,
+                },
+              ],
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [
+                {
+                  color: '#ffffff',
+                },
+                {
+                  lightness: 29,
+                },
+                {
+                  weight: 0.2,
+                },
+              ],
+            },
+            {
+              featureType: 'road.arterial',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  color: '#ffffff',
+                },
+                {
+                  lightness: 18,
+                },
+              ],
+            },
+            {
+              featureType: 'road.local',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  color: '#ffffff',
+                },
+                {
+                  lightness: 16,
+                },
+              ],
+            },
+            {
+              featureType: 'poi',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  color: '#f5f5f5',
+                },
+                {
+                  lightness: 21,
+                },
+              ],
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  color: '#dedede',
+                },
+                {
+                  lightness: 21,
+                },
+              ],
+            },
+            {
+              elementType: 'labels.text.stroke',
+              stylers: [
+                {
+                  visibility: 'on',
+                },
+                {
+                  color: '#ffffff',
+                },
+                {
+                  lightness: 16,
+                },
+              ],
+            },
+            {
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  saturation: 36,
+                },
+                {
+                  color: '#333333',
+                },
+                {
+                  lightness: 40,
+                },
+              ],
+            },
+            {
+              elementType: 'labels.icon',
+              stylers: [
+                {
+                  visibility: 'off',
+                },
+              ],
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  color: '#f2f2f2',
+                },
+                {
+                  lightness: 19,
+                },
+              ],
+            },
+            {
+              featureType: 'administrative',
+              elementType: 'geometry.fill',
+              stylers: [
+                {
+                  color: '#fefefe',
+                },
+                {
+                  lightness: 20,
+                },
+              ],
+            },
+            {
+              featureType: 'administrative',
+              elementType: 'geometry.stroke',
+              stylers: [
+                {
+                  color: '#fefefe',
+                },
+                {
+                  lightness: 17,
+                },
+                {
+                  weight: 1.2,
+                },
+              ],
+            },
+          ],
+        }
+
+        // Get the HTML DOM element that will contain your map
+        // We are using a div with id="map" seen below in the <body>
+        var mapElement = document.getElementById('google-map')
+
+        // Create the Google Map using our element and options defined above
+        var map = new google.maps.Map(mapElement, mapOptions)
+
+        // Let's also add a marker while we're at it
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(40.74061, -73.935242),
+          map: map,
+          title: 'Limupa',
+          animation: google.maps.Animation.BOUNCE,
+        })
+      }
+    </script>
   </body>
 
-  <!-- login-register31:27-->
+  <!-- contact32:04-->
 </html>

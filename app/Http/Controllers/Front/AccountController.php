@@ -59,10 +59,19 @@ class AccountController extends Controller
     }
 
     public function postRegister(Request $request) {
+        $user = $this->userService->all();
+        foreach ($user as $user){
+            if ($request->email == $user->email) {
+            return back() 
+                ->with('notification', 'ERROR: Email is used');
+        } 
+        }
         if ($request->password != $request->password_confirmation) {
             return back() 
                 ->with('notification', 'ERROR: Confirm Password not match');
         }
+        
+       
 
         $data = [
             'name' => $request->name,

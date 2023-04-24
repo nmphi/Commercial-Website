@@ -44,7 +44,7 @@
                                     <div class="col">
                                         <div class="widget-chart p-0">
                                             <div class="widget-chart-content">
-                                                <div class="widget-numbers text-success fsize-3">{{$total}}</div>
+                                                <div class="widget-numbers text-success fsize-3">${{$total}}</div>
                                                 <div class="widget-subheading pt-1">THE SALES AMOUNT </div>
                                             </div>
                                         </div>

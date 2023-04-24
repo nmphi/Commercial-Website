@@ -185,10 +185,7 @@
                     </form>
                   </div>
                   <div class="product-additional-info pt-25">
-                    <a class="wishlist-btn" href="wishlist.html">
-                      <i class="fa fa-heart-o"></i>
-                      Add to wishlist
-                    </a>
+                    
                     <div class="product-social-sharing pt-25">
                       <ul>
                         <li class="facebook">
@@ -414,7 +411,7 @@
                                           <input
                                             id="author"
                                             name="name"
-                                            value=""
+                                            value="{{\Illuminate\Support\Facades\Auth::user()->name ?? ''}}"
                                             size="30"
                                             aria-required="true"
                                             type="text"
@@ -430,7 +427,7 @@
                                           <input
                                             id="email"
                                             name="email"
-                                            value=""
+                                            value="{{\Illuminate\Support\Facades\Auth::user()->email ?? ''}}"
                                             size="30"
                                             aria-required="true"
                                             type="text"
