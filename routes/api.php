@@ -20,3 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('shop', '\App\Http\Controllers\Api\ProductController')->only(['index']);
 Route::post('login', [\App\Http\Controllers\Api\LoginController::class, 'login']);
 Route::post('register', [\App\Http\Controllers\Api\LoginController::class, 'register']);
+Route::get('user/{id}', [\App\Http\Controllers\Api\LoginController::class, 'myOrderShow']);
+Route::post('checkout', [\App\Http\Controllers\Api\LoginController::class, 'checkout']);
